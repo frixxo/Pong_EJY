@@ -13,7 +13,6 @@ public class Paddle {
         this.position = new Vector(x, y);
     }
 
-
     // get the paddles position
     public int getX(){
         return position.x;
