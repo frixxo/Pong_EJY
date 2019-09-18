@@ -5,9 +5,7 @@ import javafx.scene.input.KeyEvent;
 
 public class PlayerInput {
     private void keyPressed(KeyEvent event) {
-        if (!running) {
-            return;
-        }
+
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
@@ -27,9 +25,7 @@ public class PlayerInput {
     }
 
     private void keyReleased(KeyEvent event) {
-        if (!running) {
-            return;
-        }
+
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
