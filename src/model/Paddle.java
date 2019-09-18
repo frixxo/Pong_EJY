@@ -32,5 +32,4 @@ public class Paddle {
         this.position.y = y;
     }
 
->>>>>>> 37d3e323261659ca537bd3563fd128711d5d2658
 }
