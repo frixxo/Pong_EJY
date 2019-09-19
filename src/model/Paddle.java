@@ -5,25 +5,31 @@ public class Paddle {
     // temporary value, will see what works in graphics
     public static final int HEIGHT = 200;
     public static final int WIDTH = 50;
-    public static final int SPEED = 10;
+    public static final double SPEED = 10;
 
     // define the start position
     Vector position;
-    Paddle(int x, int y){
+    Paddle(double x, double y){
         this.position = new Vector(x, y);
     }
 
-    // get the paddles position
-    public int getX(){
-        return position.x;
+    // get the paddle's position
+    public double getX(){
+        return this.position.x;
     }
-    public int getY(){
-        return position.y;
-    }
-
-    // move the paddles, not allowed to move anywhere along the x-axel
-    public void setY(int y){
-        this.position.y = y;
+    public double getY(){
+        return this.position.y;
     }
 
+    /*
+    *  move the paddles
+    *  positive int = move down
+    *  negative int = move up
+    *  zero = no move
+    */
+    public void move(double dir){
+        // if dir == 0, dir = 0, else if dir > 0, dir = 1, else dir = -1,
+        dir = (dir == 0) ? 0 : (dir > 0) ? 1 : -1;
+        this.position.y += dir * this.SPEED;
+    }
 }
