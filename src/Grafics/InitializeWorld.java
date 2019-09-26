@@ -1,4 +1,9 @@
 package Grafics;
 
-public class InitializeWorld {
+public class InitializeWorld{
+
+    void initializeWorld(){
+        //TODO initialize world
+    }
+
 }

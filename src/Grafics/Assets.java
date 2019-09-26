@@ -26,11 +26,11 @@ public abstract class Assets {
     private final Map<Object, Image> objectImage = new HashMap<>();
 
     // ------------ Handling Colors and Images ------------------------
-    public final Color colorFgText = Color.WHITE;
-    public final Image menupic = getImage("pong.png");
+    static public final Color colorFgText = Color.WHITE;
+    static public final Image menupic = getImage("pong.png");
 
-    public final String leftPaddle = "coolbluepaddle.png";
-    public final String rightPaddle = "coolredpaddle.png";
+    static public final String leftPaddle = "coolbluepaddle.png";
+    static public final String rightPaddle = "coolredpaddle.png";
 
 
     {
@@ -42,7 +42,7 @@ public abstract class Assets {
 
     // -------------- Audio handling -----------------------------
 
-    public AudioClip hitsound = getSound("ballhitpaddle.wav");
+    static public AudioClip hitsound = getSound("ballhitpaddle.wav");
 
     // -------------- Methods binding objects/classes to assets -----------------
 

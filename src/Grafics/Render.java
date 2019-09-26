@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class Render extends GUI {
+public class Render extends GUI{
 
 
     // For debugging, see render()
@@ -17,9 +17,9 @@ public class Render extends GUI {
 
     void game() {
         fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);    // Clear everything
-        fg.setFill(assets.colorFgText);
+        fg.setFill(Assets.colorFgText);
         fg.setFont(Font.font(18));
-        fg.fillText("Points: " + pong.getPointsLeft(), 10, 20);
+        fg.fillText("Points: " + .getPointsLeft(), 10, 20);
         fg.fillText("Points: " + pong.getPointsRight(), 500, 20);
         for (IPositionable d : pong.getPositionables()) {
             if (renderDebug) {

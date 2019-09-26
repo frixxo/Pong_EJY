@@ -23,8 +23,8 @@ import static java.lang.System.out;
 
 public class GUI extends Application{
     private Assets assets;
-    public static final int GAME_WIDTH = 600;
-    public static final int GAME_HEIGHT= 400;
+    static final int GAME_WIDTH = 600;
+    static final int GAME_HEIGHT= 400;
     private boolean running = false;    // Is game running?
 
     // ------- Keyboard handling ----------------------------------
@@ -154,7 +154,7 @@ public class GUI extends Application{
     public PongMenu menu = new PongMenu(this::handleMenu, this::handleTheme, this::handleOptions);
     @Override
     public void start(Stage primaryStage) throws Exception {
-/*
+
         BorderPane root = new BorderPane();
         root.setTop(menu);
 
@@ -186,10 +186,10 @@ public class GUI extends Application{
         // Set assets, splash (order matters) and initial menu state
         //TODO set theme
         menu.fixMenusKillGame();
-        bg.drawImage(/*TODO implement background*/, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+        bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
        // EventBus.INSTANCE.register(this);
-*/
+
         // Show on screen
         primaryStage.show();
     }
