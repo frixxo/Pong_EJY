@@ -16,13 +16,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Paddle;
-import model.Pong;
 
 import static java.lang.System.out;
 
-public class GUI extends Application{
 
-    private Pong pong;                  // The OO model (the data and logic for the game)
+
+public class GUI extends Application{
+    private Assets assets;
+    public static final int GAME_WIDTH = 600;
+    public static final int GAME_HEIGHT= 400;
     private boolean running = false;    // Is game running?
 
     // ------- Keyboard handling ----------------------------------
@@ -56,10 +58,14 @@ public class GUI extends Application{
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
+                // TODO
+                break;
             case DOWN:
                 // TODO
                 break;
             case A:
+                // TODO
+                break;
             case Q:
                 // TODO
                 break;
@@ -90,7 +96,7 @@ public class GUI extends Application{
     private void newGame() {
         // GUI handling
         menu.fixMenusNewGame();
-        renderBackground();
+        Render.Background();
 
         // Build the model
         Paddle rightPaddle = null;
@@ -98,10 +104,6 @@ public class GUI extends Application{
 
         // TODO Create objects and connect to a full object model
 
-
-        // Map objects to sprites
-        assets.bind(rightPaddle, assets.rightPaddle);
-        assets.bind(leftPaddle, assets.leftPaddle);
 
         // Start game
         timer.start();
@@ -111,23 +113,23 @@ public class GUI extends Application{
     private void killGame() {
         timer.stop();
         menu.fixMenusKillGame();
-        renderSplash();
+        Render.menu();
         running = false;
     }
 
     // -------- Event handling (events sent from model to GUI) ------------
 
 
-    @Override
+   /* @Override
     public void onModelEvent(ModelEvent evt) {
         if (evt.type == ModelEvent.Type.NEW_BALL) {
             // TODO Optional
         } else if (evt.type == ModelEvent.Type.BALL_HIT_PADDLE) {
-            assets.ballHitPaddle.play();
+            assets.hitsound.play();
         } else if (evt.type == ModelEvent.Type.BALL_HIT_WALL_CEILING) {
             // TODO Optional
         }
-    }
+    }*/
 
     // ------- Optional ------------
     private void handleOptions(ActionEvent e){
@@ -140,79 +142,23 @@ public class GUI extends Application{
         }
     }
 
-    // ################## Nothing to do below ############################
-
-    // ---------- Theme handling ------------------------------
-
-    private Assets assets;
-
-    private void handleTheme(ActionEvent e) {
-        String s = ((MenuItem) e.getSource()).getText();
-        Assets lastTheme = assets;
-        try {
-            switch (s) {
-                case "Cool":
-                    assets = new Cool();
-                    break;
-                case "Duckie":
-                    assets = new Duckie();
-                    break;
-                default:
-                    throw new IllegalArgumentException("No such assets " + s);
-            }
-        } catch (NullPointerException ex) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning Theme");
-            alert.setHeaderText("Data for assets " + s + " is missing or corrupt!");
-            alert.setContentText("Old Theme will be used");
-            alert.showAndWait();
-            assets = lastTheme;
-        }
-    }
-
-    // ---------- Rendering -----------------
-
-    // For debugging, see render()
-    private boolean renderDebug = false; //true;
-
-    private void render() {
-        fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);    // Clear everything
-        fg.setFill(assets.colorFgText);
-        fg.setFont(Font.font(18));
-        fg.fillText("Points: " + pong.getPointsLeft(), 10, 20);
-        fg.fillText("Points: " + pong.getPointsRight(), 500, 20);
-        for (IPositionable d : pong.getPositionables()) {
-            if (renderDebug) {
-                fg.strokeRect(d.getX(), d.getY(), d.getWidth(), d.getHeight());
-            } else {
-                fg.drawImage(assets.get(d), d.getX(), d.getY(), d.getWidth(), d.getHeight());
-            }
-        }
-    }
-
-    private void renderBackground() {
-        if (!renderDebug) {
-            bg.drawImage(assets.getBackground(), 0, 0, GAME_WIDTH, GAME_HEIGHT);
-        }
-    }
-
-    private void renderSplash() {
-        fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-        bg.drawImage(assets.splash, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+    private void handleTheme(ActionEvent e){
+        //TODO
     }
 
     // -------------- Build Scene and start graphics ---------------
 
-    private AnimationTimer timer;
-    private GraphicsContext fg;
-    private GraphicsContext bg;
-    private PongMenu menu = new PongMenu(this::handleMenu, this::handleTheme, this::handleOptions);
-
+    public AnimationTimer timer;
+    public GraphicsContext fg;
+    public GraphicsContext bg;
+    public PongMenu menu = new PongMenu(this::handleMenu, this::handleTheme, this::handleOptions);
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+/*
         BorderPane root = new BorderPane();
         root.setTop(menu);
+
+        Render Render = new Render();
 
         // Drawing areas
         Canvas background = new Canvas(GAME_WIDTH, GAME_HEIGHT);
@@ -225,8 +171,9 @@ public class GUI extends Application{
 
         timer = new AnimationTimer() {
             public void handle(long now) {
-                pong.update(now);
-                render();
+
+                //TODO Call game logic
+                Render.game();
             }
         };
 
@@ -237,12 +184,12 @@ public class GUI extends Application{
         primaryStage.setTitle("Pong");
 
         // Set assets, splash (order matters) and initial menu state
-        assets = new Cool();
+        //TODO set theme
         menu.fixMenusKillGame();
-        bg.drawImage(assets.splash, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+        bg.drawImage(/*TODO implement background*/, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-        EventBus.INSTANCE.register(this);
-
+       // EventBus.INSTANCE.register(this);
+*/
         // Show on screen
         primaryStage.show();
     }
