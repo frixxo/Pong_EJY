@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pong_EJY.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pong_EJY.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/Pong_EJY/assignment4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/Pong_EJY/pong.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafics/Render.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameObject.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

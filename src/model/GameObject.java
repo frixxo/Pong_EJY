@@ -1,9 +1,8 @@
 package model;
 
-public class GameObject {
+public interface GameObject {
 
-    void Update() {
-    }
+    void Update();
 
-    void Start () {}
+    void Start ();
 }
