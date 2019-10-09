@@ -1,5 +1,6 @@
 package Grafics;
 
+import GameManagment.IObserver;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -21,7 +22,7 @@ import static java.lang.System.out;
 
 
 
-public class GUI extends Application{
+public class GUI extends Application implements IObserver {
     private Assets assets;
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT= 400;
@@ -169,13 +170,14 @@ public class GUI extends Application{
         Pane pane = new Pane(background, foreground);
         root.setCenter(pane);
 
+        /*                                  //TODO Använd inte denna timer. Kör detta i Update metoden istället. mvh Emil
         timer = new AnimationTimer() {
             public void handle(long now) {
-
-                //TODO Call game logic
                 Render.game();
             }
-        };
+        };*/
+
+
 
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(this::keyPressed);
@@ -192,6 +194,10 @@ public class GUI extends Application{
 
         // Show on screen
         primaryStage.show();
+    }
+
+    public void Update() //Updates every frame
+    {
     }
 
     public static void main(String[] args) {

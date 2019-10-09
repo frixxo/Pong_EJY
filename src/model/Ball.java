@@ -1,18 +1,22 @@
 package model;
+import GameManagment.IWorldInfo;
+
 import java.util.*;
 import java.time.*;
 
-public class Ball{
+public class Ball implements IGameObject{
     // temporary value
     public final static int HEIGHT = 40;
     public final static int WIDTH = 40;
     public final static double SPEED = 5;
 
     Rigbody rigidbody;
+    IWorldInfo worldInfo;
 
     // defines the start position of the ball
     Vector position;
-    Ball(double x, double y){
+    Ball(double x, double y, IWorldInfo worldInfo){
+        this.worldInfo = worldInfo;
         this.position = new Vector(x, y);
     }
 
@@ -22,6 +26,11 @@ public class Ball{
     }
     public double getY(){
         return this.position.y;
+    }
+
+    public void Update()
+    { //Updates every frame
+
     }
 
     /*
@@ -64,5 +73,10 @@ public class Ball{
         this.position.x = rigidbody.velocity.x * this.SPEED * deltaTime;
         this.position.y = rigidbody.velocity.y * this.SPEED * deltaTime;
         this.position.y = rigidbody.velocity.y * this.SPEED * deltaTime;
+    }
+
+    public Vector GetPosition()
+    {
+        return position;
     }
 }
