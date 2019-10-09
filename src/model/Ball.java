@@ -15,9 +15,9 @@ public class Ball implements IGameObject{
 
     // defines the start position of the ball
     Vector position;
-    Ball(double x, double y, IWorldInfo worldInfo){
+    public Ball(Vector position, IWorldInfo worldInfo){
         this.worldInfo = worldInfo;
-        this.position = new Vector(x, y);
+        this.position = position;
     }
 
     // get the ball's position

@@ -1,60 +1,82 @@
 package GameManagment;
-import com.sun.tools.javac.Main;
+import Controlls.IControll;
+import Controlls.InputSystem;
+import Grafics.GUI;
+
+import java.util.Arrays;
+import java.util.HashSet;
 import model.Ball;
 import model.IGameObject;
-
-import java.util.ArrayList;
-import java.util.List;
+import model.Paddle;
+import model.Vector;
 
 public class GM implements IObservable, IWorldInfo{
 
-    private List<IObserver> observers = new ArrayList<IObserver>();
-    private List<IGameObject> gameObjects = new ArrayList<IGameObject>();
+    private IObserver[] observers;
+    private IGameObject[] gameObjects;
+    private IControll[] controlls;
 
-    public GM(List<IObserver> observers, List<IGameObject> gameObjects) {
-        this.observers = observers;
-        this.gameObjects = gameObjects;
-    }
+    public GM(GUI gui) { // This constructor initializes a new world
+        Vector StartPositionBall = new Vector(0,0);
+        Vector StartPositionPaddle = new Vector(0, 0);
 
-    //region GameLoop
-    void GameLoop() //TODO start gameloop
-    {
-        while (true) //TODO Byt ut mot en timad loop ellr nåt.
-        {
-            Notify();
-        }
+        IControll Player1 = new InputSystem();
+        IControll Player2 = new InputSystem();
+        controlls = new IControll[]{Player1, Player2};
+
+        gameObjects = new IGameObject[]{ //All GameObjects in the game
+                new Ball(StartPositionBall, (IWorldInfo)this),
+                new Paddle(StartPositionPaddle, (IWorldInfo)this, Player1), //TODO change startposition
+                new Paddle(StartPositionPaddle, (IWorldInfo)this, Player2)
+        };
+        Player1.Set((Paddle)gameObjects[1]);
+        Player2.Set((Paddle)gameObjects[2]);
+
+
+        observers = new IObserver[]{ //All nonGameObject observers in the game
+                gui
+        };
+        HashSet<IObserver> set = new HashSet<IObserver>();
+        set.addAll(Arrays.asList(gameObjects));
+        set.addAll(Arrays.asList(observers));
+
+        observers = set.toArray(observers);
     }
-    //endregion
 
     //region IObserver
-    public void Add(IObserver observer) {
-        observers.add(observer);
-    }
-
-    public void Remove(IObserver observer) {
-        observers.remove(observer);
-    }
-
     public void Notify() {
-        for(int i = 0; i < observers.size(); i++)
+        for(int i = 0; i < observers.length; i++)
         {
-            observers.get(i).Update();
+            observers[i].Update();
         }
     }
     //endregion
 
     //region IWorldInfo
-    public List<IGameObject> GetAllGameObjects() {
+    public IGameObject[] GetAllGameObjects() {
         return gameObjects;
     }
 
     public Ball GetBall() {
         try {
-            return (Ball)gameObjects.get(0); //The ball needs to always be at index zero
+            return (Ball)gameObjects[0]; //The ball needs to always be at index zero
         } catch (IncompatibleClassChangeError e)
         {
             throw new RuntimeException("Ball not at index zero");
         }
+    }
+
+    public InputSystem[] GetPlayers(){
+        HashSet<InputSystem> set = new HashSet<InputSystem>();
+        for (int i = 0; i < controlls.length; i++)
+        {
+            try{
+                set.add((InputSystem) controlls[i]);
+            } catch (IncompatibleClassChangeError e) {}
+        }
+        InputSystem[] players = new InputSystem[0];
+        players = set.toArray(players);
+        return players;
     }
     //endregion
 }

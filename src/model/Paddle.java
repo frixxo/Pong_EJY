@@ -14,10 +14,10 @@ public class Paddle implements IGameObject, IControllable {
     // define the start position
     Vector position;
     double direction = 0;
-    Paddle(double x, double y, IWorldInfo worldInfo, IControll controll){
+    public Paddle(Vector position, IWorldInfo worldInfo, IControll controll){
         this.worldInfo = worldInfo;
         this.controll = controll;
-        this.position = new Vector(x, y);
+        this.position = position;
     }
 
     IWorldInfo worldInfo; //reference to world

@@ -1,6 +1,9 @@
 package Grafics;
 
+import Controlls.InputSystem;
+import GameManagment.GM;
 import GameManagment.IObserver;
+import GameManagment.IWorldInfo;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -27,9 +30,11 @@ public class GUI extends Application implements IObserver {
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT= 400;
     private boolean running = false;    // Is game running?
+    private final GM gameManager = new GM(this);
+    private final IWorldInfo worldInfo = (IWorldInfo)gameManager;
 
     // ------- Keyboard handling ----------------------------------
-
+    private InputSystem[] players = worldInfo.GetPlayers();
     private void keyPressed(KeyEvent event) {
         if (!running) {
             return;
@@ -37,16 +42,16 @@ public class GUI extends Application implements IObserver {
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(1);
                 break;
             case DOWN:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(-1);
                 break;
             case Q:
-                // TODO
+                if(players.length  > 1) players[1].ChangeDirection(1);
                 break;
             case A:
-                // TODO
+                if(players.length  > 0) players[1].ChangeDirection(-1);
                 break;
             default:  // Nothing
         }
@@ -59,16 +64,16 @@ public class GUI extends Application implements IObserver {
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(0);
                 break;
             case DOWN:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(0);
                 break;
             case A:
-                // TODO
+                if(players.length  > 1) players[0].ChangeDirection(0);
                 break;
             case Q:
-                // TODO
+                if(players.length  > 1) players[0].ChangeDirection(0);
                 break;
             default: // Nothing
         }
@@ -170,12 +175,12 @@ public class GUI extends Application implements IObserver {
         Pane pane = new Pane(background, foreground);
         root.setCenter(pane);
 
-        /*                                  //TODO Använd inte denna timer. Kör detta i Update metoden istället. mvh Emil
         timer = new AnimationTimer() {
             public void handle(long now) {
                 Render.game();
+                gameManager.Notify();
             }
-        };*/
+        };
 
 
 
