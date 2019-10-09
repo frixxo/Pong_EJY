@@ -16,7 +16,11 @@ public class GM implements IObservable, IWorldInfo{
     private IGameObject[] gameObjects;
     private IControll[] controlls;
 
-    public GM(GUI gui) { // This constructor initializes a new world
+    private Vector worldSize;
+
+    public GM(GUI gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
+        worldSize = new Vector(worldWidth, worldHeight);
+
         Vector StartPositionBall = new Vector(0,0);
         Vector StartPositionPaddle = new Vector(0, 0);
 
@@ -77,6 +81,10 @@ public class GM implements IObservable, IWorldInfo{
         InputSystem[] players = new InputSystem[0];
         players = set.toArray(players);
         return players;
+    }
+
+    public Vector GetWorldSize() {
+        return worldSize;
     }
     //endregion
 }
