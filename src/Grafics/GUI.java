@@ -30,7 +30,7 @@ public class GUI extends Application implements IObserver {
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT= 400;
     private boolean running = false;    // Is game running?
-    private final GM gameManager = new GM(this);
+    private GM gameManager = new GM(this,GAME_WIDTH, GAME_HEIGHT);
     private final IWorldInfo worldInfo = (IWorldInfo)gameManager;
 
     // ------- Keyboard handling ----------------------------------
@@ -105,11 +105,8 @@ public class GUI extends Application implements IObserver {
         Render.Background();
 
         // Build the model
-        Paddle rightPaddle = null;
-        Paddle leftPaddle = null;
-
-        // TODO Create objects and connect to a full object model
-
+        gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
+        InputSystem[] players = worldInfo.GetPlayers();
 
         // Start game
         timer.start();
@@ -141,7 +138,7 @@ public class GUI extends Application implements IObserver {
     private void handleOptions(ActionEvent e){
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if( i.isSelected()){
-            // TODO Optional if using AI
+            gameManager.SetPlayerToAI(1);
             out.println("AI on");
         }else {
             out.println("AI off");

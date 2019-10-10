@@ -1,14 +1,15 @@
 package GameManagment;
+import Controlls.AI;
 import Controlls.IControll;
 import Controlls.InputSystem;
 import Grafics.GUI;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import model.Ball;
-import model.IGameObject;
-import model.Paddle;
-import model.Vector;
+
+import model.*;
+
+import javax.swing.*;
 
 public class GM implements IObservable, IWorldInfo{
 
@@ -22,7 +23,7 @@ public class GM implements IObservable, IWorldInfo{
         worldSize = new Vector(worldWidth, worldHeight);
 
         Vector StartPositionBall = new Vector(0,0);
-        Vector StartPositionPaddle = new Vector(0, 0);
+        double DisanceFromMidPaddle = 0;
 
         IControll Player1 = new InputSystem();
         IControll Player2 = new InputSystem();
@@ -30,8 +31,8 @@ public class GM implements IObservable, IWorldInfo{
 
         gameObjects = new IGameObject[]{ //All GameObjects in the game
                 new Ball(StartPositionBall, (IWorldInfo)this),
-                new Paddle(StartPositionPaddle, (IWorldInfo)this, Player1), //TODO change startposition
-                new Paddle(StartPositionPaddle, (IWorldInfo)this, Player2)
+                new Paddle(new Vector(worldWidth/2-DisanceFromMidPaddle, worldHeight/2), (IWorldInfo) this, Player1), //TODO change startposition
+                new Paddle(new Vector(worldWidth/2+DisanceFromMidPaddle, worldHeight/2), (IWorldInfo)this, Player2)
         };
         Player1.Set((Paddle)gameObjects[1]);
         Player2.Set((Paddle)gameObjects[2]);
@@ -40,14 +41,60 @@ public class GM implements IObservable, IWorldInfo{
         observers = new IObserver[]{ //All nonGameObject observers in the game
                 gui
         };
-        HashSet<IObserver> set = new HashSet<IObserver>();
+        HashSet<IObserver> set = new HashSet<IObserver>(); //Adding the gameObjects to the observers
         set.addAll(Arrays.asList(gameObjects));
         set.addAll(Arrays.asList(observers));
+
+        for (int i = 0; i < controlls.length; i++) //Adding all the controls that need updates (ie AI)
+        {
+            try{
+                set.add((IObserver)controlls[i]);
+            } catch (IncompatibleClassChangeError e) {};
+        }
 
         observers = set.toArray(observers);
     }
 
-    //region IObserver
+    //region ChangePlayers
+    public void SetPlayerToAI (int playerIndex)
+    {
+        IControll swapPlayer = controlls[playerIndex];
+        IControllable paddle = swapPlayer.GetPuppet();
+        IControll ai = new AI((IWorldInfo) this, paddle);
+
+        try {
+            AI t = (AI)swapPlayer;
+        } catch (IncompatibleClassChangeError e)
+        {
+            controlls[playerIndex] = ai;
+            HashSet<IObserver> set = new HashSet<IObserver>();
+            set.addAll(Arrays.asList(observers));
+            set.add((IObserver) ai);
+            observers = set.toArray(observers);
+        }
+    }
+
+    public void SetAITOPlayer(int aiIndex)
+    {
+        IControll swapPlayer = controlls[aiIndex];
+        IControllable paddle = swapPlayer.GetPuppet();
+        IControll is = new InputSystem();
+        is.Set(paddle);
+
+        try {
+            InputSystem t = (InputSystem) swapPlayer;
+        } catch (IncompatibleClassChangeError e)
+        {
+            controlls[aiIndex] = is;
+            HashSet<IObserver> set = new HashSet<IObserver>();
+            set.addAll(Arrays.asList(observers));
+            set.remove((IObserver) swapPlayer);
+            observers = set.toArray(observers);
+        }
+    }
+    //endregion
+
+    //region IObservable
     public void Notify() {
         for(int i = 0; i < observers.length; i++)
         {

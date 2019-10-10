@@ -7,4 +7,5 @@ public interface IControll {
     void Set(IControllable puppet);
     void Action ();
     double GetDirection();
+    IControllable GetPuppet();
 }

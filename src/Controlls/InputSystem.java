@@ -26,5 +26,7 @@ public class InputSystem implements IControll {
     public double GetDirection() {
         return direction;
     }
+
+    public IControllable GetPuppet(){return puppet;}
     //endregion
 }

@@ -27,9 +27,14 @@ public class AI implements IObserver, IControll {
     public double GetDirection() {
         return direction;
     }
+
+    public IControllable GetPuppet(){return puppet;}
     //endregion
 
-    public void Update() {
 
+    //TODO Plan: check the balls movement vector.
+    // If it points towards us then make a calculation of where it will end up and move there.
+    // Take bouncing into walls into the calculation;
+    public void Update() {
     }
 }
