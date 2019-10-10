@@ -79,4 +79,6 @@ public class Ball implements IGameObject{
     {
         return position;
     }
+
+    public Vector GetMovmentVector (){return rigidbody.velocity;}
 }
