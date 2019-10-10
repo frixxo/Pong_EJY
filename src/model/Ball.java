@@ -1,18 +1,23 @@
 package model;
-import java.util.*;
+import GameManagment.IWorldInfo;
 
-public class Ball{
+import java.util.*;
+import java.time.*;
+
+public class Ball implements IGameObject{
     // temporary value
     public final static int HEIGHT = 40;
     public final static int WIDTH = 40;
     public final static double SPEED = 5;
 
-    Rigbody bounce;
+    Rigbody rigidbody;
+    IWorldInfo worldInfo;
 
     // defines the start position of the ball
     Vector position;
-    Ball(double x, double y){
-        this.position = new Vector(x, y);
+    public Ball(Vector position, IWorldInfo worldInfo){
+        this.worldInfo = worldInfo;
+        this.position = position;
     }
 
     // get the ball's position
@@ -21,6 +26,11 @@ public class Ball{
     }
     public double getY(){
         return this.position.y;
+    }
+
+    public void Update()
+    { //Updates every frame
+
     }
 
     /*
@@ -39,9 +49,11 @@ public class Ball{
     *  then y2 = k + y1
     *  also y_distance = k
     */
-    public void move(double x_dir, double y_dir, double k) {
+    /*public void move(double x_dir, double y_dir, double k) {
         x_dir = (x_dir == 0) ? 0 : (x_dir > 0) ? 1 : -1;
         y_dir = (y_dir == 0) ? 0 : (y_dir > 0) ? 1 : -1;
+
+
 
         double y_distance = Math.abs(k);
         if (y_distance > 1){
@@ -52,5 +64,19 @@ public class Ball{
 
         this.position.x += this.SPEED * x_dir;
         this.position.y += this.SPEED * y_distance * y_dir;
+    }*/
+
+
+    public void move (double lastIteration)
+    {
+        double deltaTime = System.currentTimeMillis() - lastIteration;
+        this.position.x = rigidbody.velocity.x * this.SPEED * deltaTime;
+        this.position.y = rigidbody.velocity.y * this.SPEED * deltaTime;
+        this.position.y = rigidbody.velocity.y * this.SPEED * deltaTime;
+    }
+
+    public Vector GetPosition()
+    {
+        return position;
     }
 }

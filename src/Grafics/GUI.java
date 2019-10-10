@@ -1,5 +1,9 @@
 package Grafics;
 
+import Controlls.InputSystem;
+import GameManagment.GM;
+import GameManagment.IObserver;
+import GameManagment.IWorldInfo;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -21,14 +25,16 @@ import static java.lang.System.out;
 
 
 
-public class GUI extends Application{
+public class GUI extends Application implements IObserver {
     private Assets assets;
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT= 400;
     private boolean running = false;    // Is game running?
+    private GM gameManager = new GM(this,GAME_WIDTH, GAME_HEIGHT);
+    private final IWorldInfo worldInfo = (IWorldInfo)gameManager;
 
     // ------- Keyboard handling ----------------------------------
-
+    private InputSystem[] players = worldInfo.GetPlayers();
     private void keyPressed(KeyEvent event) {
         if (!running) {
             return;
@@ -36,15 +42,16 @@ public class GUI extends Application{
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
+                if(players.length  > 0) players[0].ChangeDirection(1);
                 break;
             case DOWN:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(-1);
                 break;
             case Q:
-                // TODO
+                if(players.length  > 1) players[1].ChangeDirection(1);
                 break;
             case A:
-                // TODO
+                if(players.length  > 0) players[1].ChangeDirection(-1);
                 break;
             default:  // Nothing
         }
@@ -57,16 +64,16 @@ public class GUI extends Application{
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(0);
                 break;
             case DOWN:
-                // TODO
+                if(players.length  > 0) players[0].ChangeDirection(0);
                 break;
             case A:
-                // TODO
+                if(players.length  > 1) players[0].ChangeDirection(0);
                 break;
             case Q:
-                // TODO
+                if(players.length  > 1) players[0].ChangeDirection(0);
                 break;
             default: // Nothing
         }
@@ -98,11 +105,8 @@ public class GUI extends Application{
         Render.Background();
 
         // Build the model
-        Paddle rightPaddle = null;
-        Paddle leftPaddle = null;
-
-        // TODO Create objects and connect to a full object model
-
+        gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
+        InputSystem[] players = worldInfo.GetPlayers();
 
         // Start game
         timer.start();
@@ -134,7 +138,7 @@ public class GUI extends Application{
     private void handleOptions(ActionEvent e){
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if( i.isSelected()){
-            // TODO Optional if using AI
+            gameManager.SetPlayerToAI(1);
             out.println("AI on");
         }else {
             out.println("AI off");
@@ -170,11 +174,12 @@ public class GUI extends Application{
 
         timer = new AnimationTimer() {
             public void handle(long now) {
-
-                //TODO Call game logic
                 Render.game();
+                gameManager.Notify();
             }
         };
+
+
 
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(this::keyPressed);
@@ -191,6 +196,10 @@ public class GUI extends Application{
 
         // Show on screen
         primaryStage.show();
+    }
+
+    public void Update() //Updates every frame
+    {
     }
 
     public static void main(String[] args) {
