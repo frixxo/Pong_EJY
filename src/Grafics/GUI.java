@@ -36,7 +36,6 @@ public class GUI extends Application{
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                // TODO
                 break;
             case DOWN:
                 // TODO
@@ -188,7 +187,7 @@ public class GUI extends Application{
         menu.fixMenusKillGame();
         bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-       // EventBus.INSTANCE.register(this);
+       // TODO EventBus.INSTANCE.register(this);
 
         // Show on screen
         primaryStage.show();

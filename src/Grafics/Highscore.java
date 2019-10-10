@@ -3,11 +3,17 @@ package Grafics;
 //spara highscore med namn
 public class Highscore {
 
-    public int isHighscore(int score, int[] highscore) {
+//TODO spara highscore
+
+    public int checkHighscore(int score) {
+        int[] highscore;
+        //TODO ta in gamla highscore till highscore[]
+
         for (int x = 0; x < highscore.length; x++) {
-            if (score > highscore[lowest])
+            if (score > highscore[highscore.length-1])
                 return(ranking(score, highscore));  //ranks your score and shifts existing scores.
         }
+        return -1;
     }
 
     public int ranking(int score, int[] highscore){
