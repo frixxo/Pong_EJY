@@ -26,7 +26,7 @@
   </component>
   <component name="ProjectId" id="1RVWIjdZr5EdDea9q4I5wqZhuQM" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javafx-sdk-12.0.2/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -43,10 +43,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Grafics.GUI" />
       <module name="Pong_EJY" />
+      <option name="VM_PARAMETERS" value="--module-path E:\_Stuff\javafx-sdk-12.0.2\lib --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Grafics.*" />
@@ -77,10 +78,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.Render" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.GUI" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Render" />
       </list>
     </recent_temporary>
