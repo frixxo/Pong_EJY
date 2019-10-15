@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="ball, paddle, rigbody partially done, added fpslimiter for smooth transition">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pong_EJY.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pong_EJY.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/GameManagment/GM.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/GameManagment/GM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/Assets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/Highscore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/InitializeWorld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/PongMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/Render.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/assignment4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/assignment4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/Highscore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Highscore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/InitializeWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/InitializeWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/PongMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/PongMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Render.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Assets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +31,8 @@
   <component name="ProjectId" id="1RVWIjdZr5EdDea9q4I5wqZhuQM" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javafx-sdk-12.0.2/lib" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pong" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -70,7 +54,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
       <module name="Pong_EJY" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;E:\_Stuff\javafx-sdk-12.0.2\lib&quot; \ --add-modules javafx.fxml,javafx.controls" />
+      <option name="VM_PARAMETERS" value="--module-path E:\_Stuff\javafx-sdk-12.0.2\lib --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Grafics.*" />
@@ -136,5 +120,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
     <option name="LAST_COMMIT_MESSAGE" value="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/Graphics/Assets.java</url>
+          <line>32</line>
+          <properties field="menupic" class="Graphics.Assets" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

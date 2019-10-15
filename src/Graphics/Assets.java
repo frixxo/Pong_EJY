@@ -22,8 +22,8 @@ import java.util.Map;
 
 public abstract class Assets {
 
-    private final String IMAGE_DIR = "file:assets/img/";
-    private final String SOUND_DIR = "file:assets/sound/";
+    private final String IMAGE_DIR = "file:Assets/img/";
+    private final String SOUND_DIR = "file:Assets/sound/";
 
     // A Map to store which image belongs to which object
     private final Map<Object, Image> objectImage = new HashMap<>();
