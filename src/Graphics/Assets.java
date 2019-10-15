@@ -1,4 +1,4 @@
-package Grafics;
+package Graphics;
 
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;

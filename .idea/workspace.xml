@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
+    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="ball, paddle, rigbody partially done, added fpslimiter for smooth transition">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pong_EJY.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pong_EJY.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/GameManagment/GM.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/GameManagment/GM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/Assets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/Highscore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/InitializeWorld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/PongMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/Render.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/assignment4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/assignment4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafics/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafics/Highscore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Highscore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafics/InitializeWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/InitializeWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafics/PongMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/PongMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafics/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Render.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment4.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +46,11 @@
   </component>
   <component name="ProjectId" id="1RVWIjdZr5EdDea9q4I5wqZhuQM" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javafx-sdk-12.0.2/lib" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -43,10 +65,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.GUI">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Grafics.GUI" />
+    <configuration name="GUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="12.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
       <module name="Pong_EJY" />
-      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Desktop/Java-devel/javafx-sdk-13/lib --add-modules=javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;E:\_Stuff\javafx-sdk-12.0.2\lib&quot; \ --add-modules javafx.fxml,javafx.controls" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Grafics.*" />
@@ -57,15 +81,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Render" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Grafics.Render" />
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
       <module name="Pong_EJY" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Grafics.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="VM_PARAMETERS" value="--module-path &quot;E:\_Stuff\javafx-sdk-12.0.2\lib&quot; \ --add-modules javafx.fxml,javafx.controls" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -79,14 +98,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.GUI" />
-      <item itemvalue="Application.Render" />
       <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.Render" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.GUI" />
       </list>
     </recent_temporary>
   </component>

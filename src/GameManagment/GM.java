@@ -2,11 +2,9 @@ package GameManagment;
 import Controlls.AI;
 import Controlls.IControll;
 import Controlls.InputSystem;
-import Grafics.GUI;
 
 import java.util.Arrays;
 import java.util.HashSet;
-
 import model.*;
 
 import javax.swing.*;
@@ -19,7 +17,7 @@ public class GM implements IObservable, IWorldInfo{
 
     private Vector worldSize;
 
-    public GM(GUI gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
+    public GM(IObserver gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
         worldSize = new Vector(worldWidth, worldHeight);
 
         Vector StartPositionBall = new Vector(0,0);
@@ -49,7 +47,7 @@ public class GM implements IObservable, IWorldInfo{
         {
             try{
                 set.add((IObserver)controlls[i]);
-            } catch (IncompatibleClassChangeError e) {};
+            } catch (ClassCastException e) {};
         }
 
         observers = set.toArray(observers);

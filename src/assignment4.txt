@@ -25,11 +25,11 @@ The application is divided over a few directories
 
     - asserts, will hold all images and sounds used.
     - src/pong
-        - event/: Classes to handle events sent from model to GUI.
+        - event/: Classes to handle events sent from model to Graphics.GUI.
         - model/: The object model classes (the game data and logic)
         - view/: The visible parts (the view of the model) of the program, sound
-          and the event handling from GUI to model
-        - view/theme: Theme specific classes for GUI
+          and the event handling from Graphics.GUI to model
+        - view/theme: Theme specific classes for Graphics.GUI
 
 The Object model
 ------------
@@ -38,24 +38,24 @@ The Object model
 - Pong class handles the game logic (possibly asking others to help)
 - Pong class uses two Paddle objects and a Ball object.
 
-The GUI
+The Graphics.GUI
 --------
 This is a graphical event driven JavaFX program. All graphics and event
-handling code is in PongGUI and PongMenu files.
-- The GUI has no game logic what so ever, it's just the look and the events
+handling code is in PongGUI and Graphics.PongMenu files.
+- The Graphics.GUI has no game logic what so ever, it's just the look and the events
   (administration)
 
 Program is "themeable". User may choose different themes for "the look"".
 Currently there are two implemented themes, "Cool" and "Duckie"
 
-Inspect class Assets for mappings of objects and images, etc.
+Inspect class Graphics.Assets for mappings of objects and images, etc.
 
 Workflow
 --------
 Some classes are finished, see comments in code (= "Nothing to do here").
 This is a suggested workflow ...
 
-1. The over all goal is for now is to display the ball and the paddles in the GUI
+1. The over all goal is for now is to display the ball and the paddles in the Graphics.GUI
 
 a. Decide which data (instance variables) and methods needed in Ball and Paddle.
    This is a trial and error process to get some kind of start. Implement
@@ -93,8 +93,8 @@ a.  Add checks, in update(), to create a new ball if the actual escapes. Also
 5.  Make paddles move and add collision detection for ball and paddles. No redundancy
     for collision detection, should be done in one place and one place only.
 
-6.  Add event handling from model to GUI, using Event and EventService. If a collision
-    occurs in model send an event to GUI to inform GUI to play a sound.
+6.  Add event handling from model to Graphics.GUI, using Event and EventService. If a collision
+    occurs in model send an event to Graphics.GUI to inform Graphics.GUI to play a sound.
 
 7. (Optional) Add some twist(s) to the game!
 

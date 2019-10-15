@@ -1,4 +1,4 @@
-package Grafics;
+package Graphics;
 
 public class InitializeWorld{
 

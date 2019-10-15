@@ -1,4 +1,4 @@
-package Grafics;
+package Graphics;
 
 import Controlls.InputSystem;
 import GameManagment.GM;
@@ -10,18 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Ball;
 import model.IGameObject;
-import model.Paddle;
 
 import static java.lang.System.out;
 
@@ -103,7 +99,7 @@ public class GUI extends Application implements IObserver {
     // ---------- Menu actions ---------------------
 
     private void newGame() {
-        // GUI handling
+        // Graphics.GUI handling
         menu.fixMenusNewGame();
         render.Background();
 
@@ -123,7 +119,7 @@ public class GUI extends Application implements IObserver {
         running = false;
     }
 
-    // -------- Event handling (events sent from model to GUI) ------------
+    // -------- Event handling (events sent from model to Graphics.GUI) ------------
 
 
    /* @Override
@@ -190,7 +186,7 @@ public class GUI extends Application implements IObserver {
 
         timer = new AnimationTimer() {
             public void handle(long now) {
-                render.game(gameManager);
+                render.game(worldInfo);
                 gameManager.Notify();
             }
         };
