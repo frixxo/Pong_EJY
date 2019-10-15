@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Assetss.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Render.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Render.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/Assetss.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/Cool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Cool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Render.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +15,7 @@
   </component>
   <component name="ProjectId" id="1SFiYKOYkwjoKVz33MENMQhVd9A" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pong" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
