@@ -27,8 +27,8 @@ import static java.lang.System.out;
 
 
 public class GUI extends Application implements IObserver {
-    Assets assets;
-    Render render;
+    Assets assets = new Assetss();
+    Render render= new Render();
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT = 400;
     private boolean running = false;    // Is game running?
@@ -153,12 +153,12 @@ public class GUI extends Application implements IObserver {
         String k = ((MenuItem) e.getSource()).getText();
         switch (k) {
             case "Duckie":
-                assets.SetTheme("Duckie", X[0], X[1], X[2]);
+               Duckie duckie = new Duckie(X[0], X[1], X[2]);
                 break;
             case "Classic":
-                assets.SetTheme("Classic", X[0], X[1], X[2]);
+               //TODO Classic classic = new Classic(X[0], X[1], X[2]);
             case "Cool":
-                assets.SetTheme("Cool", X[0], X[1], X[2]);
+                Cool cool = new Cool(X[0], X[1], X[2]);
                 break;
             default:
                 throw new IllegalArgumentException("No such menu choice " + k);
