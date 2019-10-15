@@ -32,9 +32,6 @@ public class Rigbody {
     public void setVelocityX(double x){ velocity.x = x; }
     public void setVelocityY(double y){ velocity.y = speed; }
 
-    void Bounce(){
-
-    }
 
     /*
     Vector velocity;

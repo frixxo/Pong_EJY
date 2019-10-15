@@ -6,20 +6,22 @@ import GameManagment.IWorldInfo;
 
 public class Paddle implements IGameObject, IControllable {
 
-    Rigbody paddle = new Rigbody(200, 50, 5);
-    FPSLimiter update = new FPSLimiter();
+    private Rigbody paddle = new Rigbody(200, 50, 5);
+    private FPSLimiter update = new FPSLimiter();
 
     // define the start position
-    Vector position;
-    double direction = 0;
+    private Vector position;
+    private double direction = 0;
+
     public Paddle(Vector position, IWorldInfo worldInfo, IControll controll){
         this.worldInfo = worldInfo;
         this.controll = controll;
         this.position = position;
     }
 
-    IWorldInfo worldInfo; //reference to world
-    IControll controll; // reference to controll
+    // TODO this is not used here
+    private IControll controll; // reference to controll
+    private IWorldInfo worldInfo; //reference to world
 
     public Vector GetSize(){return new Vector(paddle.getWidth(),paddle.getHeight());}
     public int getSpeed(){ return paddle.getSpeed(); }
@@ -38,14 +40,19 @@ public class Paddle implements IGameObject, IControllable {
         direction= controll.GetDirection();
     }
 
-
-
-    public void move(double dir){
-        if (dir < 0){
+    public void move(double dir) {
+        if (dir < 0 && isPositionOK()) {
             dir = -1;
-        } else if (dir > 0){
+        } else if (dir > 0 && isPositionOK()) {
             dir = 1;
         }
         this.position.y += dir * paddle.getSpeed();
+    }
+
+    private boolean isPositionOK() {
+        if (position.y >= worldInfo.GetWorldSize().y || position.y - paddle.getHeight() <= 0) {
+            return false;
+        }
+        return true;
     }
 }
