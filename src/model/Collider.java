@@ -1,7 +1,9 @@
 package model;
 
 public class Collider {
-    public boolean isCollision(Ball ball, Paddle paddle) {
+
+    // static class methods, can be used without instantiating the class
+    public static boolean isCollision(Ball ball, Paddle paddle) {
         // checks the leftmost x value of ball and rightmost x value of paddle and vice versa
         if ((ball.GetMovmentVector().x > 0 &&
                 ball.GetPosition().x + ball.GetSize().x >= paddle.GetPosition().x) ||
@@ -12,7 +14,7 @@ public class Collider {
         return false;
     }
 
-    public boolean isCollision(Ball ball, int y) {
+    public static boolean isCollision(Ball ball, int y) {
         // checks only floor and ceiling
         // walls has nothing to do with collision
         // x,y starts at bottom-left, right?
