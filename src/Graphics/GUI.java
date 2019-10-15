@@ -24,7 +24,7 @@ import static java.lang.System.out;
 
 public class GUI extends Application implements IObserver {
 
-    Render render= new Render(this);
+    Render render= new Render();
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT = 400;
     private boolean running = false;    // Is game running?
@@ -103,7 +103,7 @@ public class GUI extends Application implements IObserver {
     private void newGame() {
         // Graphics.GUI handling
         menu.fixMenusNewGame();
-        render.Background();
+        render.Background(bg,assets);
 
         // Build the model
         gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
@@ -117,7 +117,7 @@ public class GUI extends Application implements IObserver {
     private void killGame() {
         timer.stop();
         menu.fixMenusKillGame();
-        render.menu();
+        render.menu(fg,bg,assets);
         running = false;
     }
 
@@ -187,7 +187,7 @@ public class GUI extends Application implements IObserver {
 
         timer = new AnimationTimer() {
             public void handle(long now) {
-                render.game(worldInfo);
+                render.game(worldInfo,fg,bg,assets);
                 gameManager.Notify();
             }
         };
@@ -200,9 +200,8 @@ public class GUI extends Application implements IObserver {
         primaryStage.setTitle("Pong");
 
         // Set assets, splash (order matters) and initial menu state
-        //TODO set theme
         menu.fixMenusKillGame();
-        bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT); //TODO assets är aldrig skapat. Skapa den!!!!!! /Emil
+        bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
         //TODO EventBus.INSTANCE.register(this);
 
@@ -216,6 +215,7 @@ public class GUI extends Application implements IObserver {
         for (int i = 0; i < gameObjects.length; i++) {
             gameObjects[i].Update();
         }
+        render.game(worldInfo,fg,bg,assets);
 
     }
 
