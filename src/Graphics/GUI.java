@@ -201,7 +201,7 @@ public class GUI extends Application implements IObserver {
         // Set assets, splash (order matters) and initial menu state
         //TODO set theme
         menu.fixMenusKillGame();
-        bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+        bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT); //TODO assets är aldrig skapat. Skapa den!!!!!! /Emil
 
         //TODO EventBus.INSTANCE.register(this);
 
