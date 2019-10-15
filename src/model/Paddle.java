@@ -5,11 +5,9 @@ import GameManagment.IObserver;
 import GameManagment.IWorldInfo;
 
 public class Paddle implements IGameObject, IControllable {
-    // controls the paddles that moves up and down
-    // temporary value, will see what works in graphics
-    public static final int HEIGHT = 200;
-    public static final int WIDTH = 50;
-    public static final double SPEED = 10;
+
+    Rigbody paddle = new Rigbody(200, 50, 5);
+    FPSLimiter update = new FPSLimiter();
 
     // define the start position
     Vector position;
@@ -23,38 +21,38 @@ public class Paddle implements IGameObject, IControllable {
     IWorldInfo worldInfo; //reference to world
     IControll controll; // reference to controll
 
-    // get the paddle's position
     public double getX(){
         return this.position.x;
     }
     public double getY(){
         return this.position.y;
     }
-
+    public double getWidth(){ return paddle.getWidth(); }
+    public double getHeight(){ return paddle.getHeight(); }
+    public int getSpeed(){ return paddle.getSpeed(); }
+    public void setVelocity(int speed){ paddle.setSpeed(speed);}
+    public Vector GetPosition() { return position; }
 
     public void Update() //Updates every frame
     {
-        move(direction);
+        if (update.isFPS(60)) {
+            move(direction);
+        }
     }
 
     public void DoAction() //Is called when an input is formed.
     {
         direction= controll.GetDirection();
     }
-    public Vector GetPosition() // returns position
-    {
-        return position;
-    }
 
-    /*
-     *  move the paddles
-     *  positive int = move down
-     *  negative int = move up
-     *  zero = no move
-     */
+
+
     public void move(double dir){
-        // if dir == 0, dir = 0, else if dir > 0, dir = 1, else dir = -1,
-        dir = (dir == 0) ? 0 : (dir > 0) ? 1 : -1;
-        this.position.y += dir * this.SPEED; //TODO sync movement with time, (multiply with deltaTime between iterations of update)
+        if (dir < 0){
+            dir = -1;
+        } else if (dir > 0){
+            dir = 1;
+        }
+        this.position.y += dir * paddle.getSpeed();
     }
 }

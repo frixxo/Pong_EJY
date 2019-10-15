@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="">
+    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="ball, paddle, rigbody partially done, added fpslimiter for smooth transition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/IControll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/IControll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/InputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/InputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafics/GUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Pong_EJY" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,8 +26,8 @@
   </component>
   <component name="ProjectId" id="1RVWIjdZr5EdDea9q4I5wqZhuQM" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javafx-sdk-12.0.2/lib" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -49,6 +47,7 @@
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Grafics.GUI" />
       <module name="Pong_EJY" />
+      <option name="VM_PARAMETERS" value="--module-path E:\_Stuff\javafx-sdk-12.0.2\lib --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Grafics.*" />
@@ -79,6 +78,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.Render" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GUI" />
@@ -112,5 +116,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
+    <option name="LAST_COMMIT_MESSAGE" value="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
   </component>
 </project>
