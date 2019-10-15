@@ -1,5 +1,6 @@
 package Grafics;
 
+import GameManagment.GM;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -16,6 +17,7 @@ public class Render extends GUI{
     static boolean renderDebug = false; //true;
 
     void game() {
+        /* TODO
         fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);    // Clear everything
         fg.setFill(Assets.colorFgText);
         fg.setFont(Font.font(18));
@@ -27,17 +29,17 @@ public class Render extends GUI{
             } else {
                 fg.drawImage(assets.get(d), d.getX(), d.getY(), d.getWidth(), d.getHeight());
             }
-        }
+        }*/
     }
 
-    public static void Background() {
+     void Background() {
         if (!renderDebug) {
-            bg.drawImage(assets.getBackground(), 0, 0, GAME_WIDTH, GAME_HEIGHT);
+            bg.drawImage(Assets.getBackground(), 0, 0, GAME_WIDTH, GAME_HEIGHT);
         }
     }
 
-    public static void menu() {
+    void menu() {
         fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-        bg.drawImage(/*TODO menu pic*/, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+        bg.drawImage(Assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
     }
 }

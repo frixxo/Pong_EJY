@@ -192,7 +192,7 @@ public class GUI extends Application implements IObserver {
         menu.fixMenusKillGame();
         bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-       // TODO EventBus.INSTANCE.register(this);
+        //TODO EventBus.INSTANCE.register(this);
 
         // Show on screen
         primaryStage.show();
@@ -200,6 +200,7 @@ public class GUI extends Application implements IObserver {
 
     public void Update() //Updates every frame
     {
+        //TODO
     }
 
     public static void main(String[] args) {

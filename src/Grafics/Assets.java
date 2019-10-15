@@ -26,11 +26,11 @@ public abstract class Assets {
     private final Map<Object, Image> objectImage = new HashMap<>();
 
     // ------------ Handling Colors and Images ------------------------
-    static public final Color colorFgText = Color.WHITE;
-    static public final Image menupic = getImage("pong.png");
+    public final Color colorFgText = Color.WHITE;
+    public final Image menupic = getImage("pong.png");
 
-    static public final String leftPaddle = "coolbluepaddle.png";
-    static public final String rightPaddle = "coolredpaddle.png";
+    public final String leftPaddle = "coolbluepaddle.png";
+    public final String rightPaddle = "coolredpaddle.png";
 
 
     {
@@ -40,9 +40,10 @@ public abstract class Assets {
     public abstract Image getBackground();  // Implemented by subclasses
 
 
+
     // -------------- Audio handling -----------------------------
 
-    static public AudioClip hitsound = getSound("ballhitpaddle.wav");
+    public AudioClip hitsound = getSound("ballhitpaddle.wav");
 
     // -------------- Methods binding objects/classes to assets -----------------
 
