@@ -30,7 +30,7 @@ public class GUI extends Application implements IObserver {
     private boolean running = false;    // Is game running?
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
     private final IWorldInfo worldInfo = (IWorldInfo) gameManager;
-    public IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
+    IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
 
     // ------- Keyboard handling ----------------------------------
