@@ -15,14 +15,8 @@ public class Ball implements IGameObject{
         this.position = position;
     }
 
-    public double getX(){
-        return this.position.x;
-    }
-    public double getY(){
-        return this.position.y;
-    }
-    public double getWidth(){return this.size; }
-    public double getHeight(){return this.size; }
+
+    public Vector GetSize(){return new Vector(rigidbody.getWidth(),rigidbody.getHeight());}
     public Vector GetPosition() { return position; }
     public Vector GetMovmentVector() {return rigidbody.getVelocity();}
 

@@ -1,6 +1,7 @@
 package Grafics;
 
 import GameManagment.GM;
+import GameManagment.IWorldInfo;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -20,8 +21,8 @@ public class Render{
     // For debugging, see render()
     static boolean renderDebug = false; //true;
 
-    void game(GM gamemanager) {
-        IGameObject[] gameobjects=gamemanager.GetAllGameObjects();
+    void game(IWorldInfo gamemanager) {
+        IGameObject[] gameobjects= gamemanager.GetAllGameObjects();
         gui.fg.clearRect(0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);    // Clear everything
         gui.fg.setFill(Color.WHITE);
         gui.render.Background();
@@ -29,9 +30,12 @@ public class Render{
         //Todo  points
         for (int i=0; i<gameobjects.length; i++){
             if (renderDebug) {
-                gui.fg.strokeRect(gameobjects[i].getX(), gameobjects[i].getY(), gameobjects[i].getWidth(), gameobjects[i].getHeight());
+                gui.fg.strokeRect(gameobjects[i].GetPosition().GetX(), gameobjects[i].GetPosition().GetY(),
+                        gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
+
             } else {
-                gui.fg.drawImage(gui.assets.get(gameobjects[i]), gameobjects[i].getX(), gameobjects[i].getY(), gameobjects[i].getWidth(), gameobjects[i].getHeight());
+                gui.fg.drawImage(gui.assets.get(gameobjects[i]), gameobjects[i].GetPosition().GetX(),
+                        gameobjects[i].GetPosition().GetY(), gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
             }
         }
     }

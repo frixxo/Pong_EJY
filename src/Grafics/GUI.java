@@ -141,7 +141,7 @@ public class GUI extends Application implements IObserver {
     private void handleOptions(ActionEvent e) {
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if (i.isSelected()) {
-            gameManager.SetPlayerToAI(1);
+           //TODO gameManager.SetPlayerToAI(1);
             out.println("AI on");
         } else {
             out.println("AI off");
@@ -149,7 +149,7 @@ public class GUI extends Application implements IObserver {
     }
 
     private void handleTheme(ActionEvent e) {
-        IGameObject[] X = gameManager.GetAllGameObjects();
+        IGameObject[] X = worldInfo.GetAllGameObjects();
         String k = ((MenuItem) e.getSource()).getText();
         switch (k) {
             case "Duckie":
@@ -215,7 +215,7 @@ public class GUI extends Application implements IObserver {
 
     public void Update() //Updates every frame
     {
-        IGameObject[] gameObjects = gameManager.GetAllGameObjects();
+        IGameObject[] gameObjects = worldInfo.GetAllGameObjects();
         for (int i = 0; i < gameObjects.length; i++) {
             gameObjects[i].Update();
         }
