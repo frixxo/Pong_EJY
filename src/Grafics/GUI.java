@@ -26,18 +26,18 @@ import model.Paddle;
 import static java.lang.System.out;
 
 
-
 public class GUI extends Application implements IObserver {
     Assets assets;
     Render render;
     static final int GAME_WIDTH = 600;
-    static final int GAME_HEIGHT= 400;
+    static final int GAME_HEIGHT = 400;
     private boolean running = false;    // Is game running?
-    private GM gameManager = new GM(this,GAME_WIDTH, GAME_HEIGHT);
-    private final IWorldInfo worldInfo = (IWorldInfo)gameManager;
+    private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
+    private final IWorldInfo worldInfo = (IWorldInfo) gameManager;
 
     // ------- Keyboard handling ----------------------------------
     private InputSystem[] players = worldInfo.GetPlayers();
+
     private void keyPressed(KeyEvent event) {
         if (!running) {
             return;
@@ -45,16 +45,16 @@ public class GUI extends Application implements IObserver {
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                if(players.length  > 0) players[0].ChangeDirection(1);
+                if (players.length > 0) players[0].ChangeDirection(1);
                 break;
             case DOWN:
-                if(players.length  > 0) players[0].ChangeDirection(-1);
+                if (players.length > 0) players[0].ChangeDirection(-1);
                 break;
             case Q:
-                if(players.length  > 1) players[1].ChangeDirection(1);
+                if (players.length > 1) players[1].ChangeDirection(1);
                 break;
             case A:
-                if(players.length  > 0) players[1].ChangeDirection(-1);
+                if (players.length > 0) players[1].ChangeDirection(-1);
                 break;
             default:  // Nothing
         }
@@ -67,16 +67,16 @@ public class GUI extends Application implements IObserver {
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                if(players.length  > 0) players[0].ChangeDirection(0);
+                if (players.length > 0) players[0].ChangeDirection(0);
                 break;
             case DOWN:
-                if(players.length  > 0) players[0].ChangeDirection(0);
+                if (players.length > 0) players[0].ChangeDirection(0);
                 break;
             case A:
-                if(players.length  > 1) players[0].ChangeDirection(0);
+                if (players.length > 1) players[0].ChangeDirection(0);
                 break;
             case Q:
-                if(players.length  > 1) players[0].ChangeDirection(0);
+                if (players.length > 1) players[0].ChangeDirection(0);
                 break;
             default: // Nothing
         }
@@ -138,27 +138,27 @@ public class GUI extends Application implements IObserver {
     }*/
 
     // ------- Optional ------------
-    private void handleOptions(ActionEvent e){
+    private void handleOptions(ActionEvent e) {
         CheckMenuItem i = (CheckMenuItem) e.getSource();
-        if( i.isSelected()){
+        if (i.isSelected()) {
             gameManager.SetPlayerToAI(1);
             out.println("AI on");
-        }else {
+        } else {
             out.println("AI off");
         }
     }
 
-    private void handleTheme(ActionEvent e){
-        IGameObject[] X=gameManager.GetAllGameObjects();
+    private void handleTheme(ActionEvent e) {
+        IGameObject[] X = gameManager.GetAllGameObjects();
         String k = ((MenuItem) e.getSource()).getText();
         switch (k) {
             case "Duckie":
-                assets.SetTheme("Duckie",X[0],X[1],X[2]);
+                assets.SetTheme("Duckie", X[0], X[1], X[2]);
                 break;
             case "Classic":
-                assets.SetTheme("Classic",X[0],X[1],X[2]);
+                assets.SetTheme("Classic", X[0], X[1], X[2]);
             case "Cool":
-                assets.SetTheme("Cool",X[0],X[1],X[2]);
+                assets.SetTheme("Cool", X[0], X[1], X[2]);
                 break;
             default:
                 throw new IllegalArgumentException("No such menu choice " + k);
@@ -167,10 +167,11 @@ public class GUI extends Application implements IObserver {
 
     // -------------- Build Scene and start graphics ---------------
 
-    public AnimationTimer timer;
-    public GraphicsContext fg;
-    public GraphicsContext bg;
-    public PongMenu menu = new PongMenu(this::handleMenu, this::handleTheme, this::handleOptions);
+    private AnimationTimer timer;
+    GraphicsContext fg;
+    GraphicsContext bg;
+    private PongMenu menu = new PongMenu(this::handleMenu, this::handleTheme, this::handleOptions);
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -195,7 +196,6 @@ public class GUI extends Application implements IObserver {
         };
 
 
-
         Scene scene = new Scene(root);
         scene.setOnKeyPressed(this::keyPressed);
         scene.setOnKeyReleased(this::keyReleased);
@@ -215,8 +215,8 @@ public class GUI extends Application implements IObserver {
 
     public void Update() //Updates every frame
     {
-        IGameObject[] gameObjects=gameManager.GetAllGameObjects();
-        for(int i =0; i <gameObjects.length;i++){
+        IGameObject[] gameObjects = gameManager.GetAllGameObjects();
+        for (int i = 0; i < gameObjects.length; i++) {
             gameObjects[i].Update();
         }
 
