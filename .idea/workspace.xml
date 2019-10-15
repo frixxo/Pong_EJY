@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="">
+    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="ball, paddle, rigbody partially done, added fpslimiter for smooth transition">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/META-INF/Pong_EJY.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Collider.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Collider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/FPSLimiter.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/FPSLimiter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Rigbody.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Rigbody.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/FPSLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FPSLimiter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../pong" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -135,17 +127,5 @@
     <MESSAGE value="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
     <MESSAGE value="collider and other things" />
     <option name="LAST_COMMIT_MESSAGE" value="collider and other things" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/Graphics/Assets.java</url>
-          <line>32</line>
-          <properties field="menupic" class="Graphics.Assets" />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
