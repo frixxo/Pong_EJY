@@ -3,22 +3,21 @@ import GameManagment.IWorldInfo;
 
 public class Ball implements IGameObject{
 
-    private int size=30;
-    Rigbody rigidbody = new Rigbody(size, size, 8, new Vector(1, 0));
-    FPSLimiter update = new FPSLimiter();
+    private int size = 30;
+    private Rigbody ball = new Rigbody(size, size, 8, new Vector(1, 0));
+    private FPSLimiter update = new FPSLimiter();
 
-    IWorldInfo worldInfo;
-    Vector position;
+    private IWorldInfo worldInfo;
+    private Vector position;
 
     public Ball(Vector position, IWorldInfo worldInfo){
         this.worldInfo = worldInfo;
         this.position = position;
     }
 
-
-    public Vector GetSize(){return new Vector(rigidbody.getWidth(),rigidbody.getHeight());}
+    public Vector GetSize(){return new Vector(ball.getWidth(),ball.getHeight());}
     public Vector GetPosition() { return position; }
-    public Vector GetMovmentVector() {return rigidbody.getVelocity();}
+    public Vector GetMovmentVector() {return ball.getVelocity();}
 
     public void Update()
     { //Updates every frame
@@ -29,7 +28,10 @@ public class Ball implements IGameObject{
 
     public void move ()
     {
-        this.position.x += rigidbody.deltaSpeedX();
-        this.position.y += rigidbody.deltaSpeedY();
+        this.position.x += ball.deltaSpeedX();
+        this.position.y += ball.deltaSpeedY();
     }
+
+    public void BounceY() { this.position.y *= -1; }
+    public void BounceX() { this.position.x *= -1; }
 }

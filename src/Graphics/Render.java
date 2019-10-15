@@ -1,18 +1,9 @@
-package Grafics;
+package Graphics;
 
-import GameManagment.GM;
 import GameManagment.IWorldInfo;
-import javafx.animation.AnimationTimer;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import model.IGameObject;
-import model.Rigbody;
 
 public class Render{
     GUI gui = new GUI();

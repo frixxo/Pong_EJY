@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="349d0013-3322-4994-bd94-c27a0537c7b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Grafics/Assetss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Grafics/Cool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Grafics/Duckie.java" afterDir="false" />
+    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="probably fixed collision method, added pong class">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Pong.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Grafics/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafics/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafics/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Collider.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +25,12 @@
   </component>
   <component name="ProjectId" id="1SF5uGxwhqBJpXzwlt5c7SND5la" />
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pong" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,10 +44,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Grafics.GUI" />
+  <component name="RunManager" selected="Application.GUI">
+    <configuration name="GUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/java-devel/jdk-12.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
       <module name="Pong_EJY" />
+      <option name="VM_PARAMETERS" value="--module-path C:\java-devel\javafx-sdk-13\lib --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Grafics.*" />
@@ -56,8 +61,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
+      <module name="Pong_EJY" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;E:\_Stuff\javafx-sdk-12.0.2\lib&quot; \ --add-modules javafx.fxml,javafx.controls" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="Pong_EJY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.GUI" />
       </list>
     </recent_temporary>
@@ -73,6 +98,28 @@
       <option name="presentableId" value="Default" />
       <updated>1571146723575</updated>
     </task>
+    <task id="LOCAL-00001" summary="collider and other things">
+      <created>1571157306217</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571157306218</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed FPSLimiter, see test">
+      <created>1571158517363</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571158517363</updated>
+    </task>
+    <task id="LOCAL-00003" summary="collider class methods are now static">
+      <created>1571159512813</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571159512813</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +134,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ball, paddle, rigbody partially done, added fpslimiter for smooth transition" />
+    <MESSAGE value="collider and other things" />
+    <MESSAGE value="fixed FPSLimiter, see test" />
+    <MESSAGE value="collider class methods are now static" />
+    <option name="LAST_COMMIT_MESSAGE" value="collider class methods are now static" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/Graphics/Assets.java</url>
+          <line>32</line>
+          <properties field="menupic" class="Graphics.Assets" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

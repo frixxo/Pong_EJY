@@ -1,6 +1,6 @@
 package model;
 
-public class Vector {
+public class Vector{
     // simple class that saves a 2-dimensional position
     double x;
     double y;

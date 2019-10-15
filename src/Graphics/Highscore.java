@@ -1,4 +1,4 @@
-package Grafics;
+package Graphics;
 
 //spara highscore med namn
 public class Highscore {
