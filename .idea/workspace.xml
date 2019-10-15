@@ -28,6 +28,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -45,7 +46,7 @@
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Grafics.GUI" />
       <module name="Pong_EJY" />
-      <option name="VM_PARAMETERS" value="--module-path E:\_Stuff\javafx-sdk-12.0.2\lib --add-modules=javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Desktop/Java-devel/javafx-sdk-13/lib --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Grafics.*" />
@@ -84,8 +85,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Render" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>

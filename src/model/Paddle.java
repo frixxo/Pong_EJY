@@ -21,14 +21,7 @@ public class Paddle implements IGameObject, IControllable {
     IWorldInfo worldInfo; //reference to world
     IControll controll; // reference to controll
 
-    public double getX(){
-        return this.position.x;
-    }
-    public double getY(){
-        return this.position.y;
-    }
-    public double getWidth(){ return paddle.getWidth(); }
-    public double getHeight(){ return paddle.getHeight(); }
+    public Vector GetSize(){return new Vector(paddle.getWidth(),paddle.getHeight());}
     public int getSpeed(){ return paddle.getSpeed(); }
     public void setVelocity(int speed){ paddle.setSpeed(speed);}
     public Vector GetPosition() { return position; }
