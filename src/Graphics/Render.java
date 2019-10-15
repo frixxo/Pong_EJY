@@ -6,17 +6,15 @@ import javafx.scene.text.Font;
 import model.IGameObject;
 
 public class Render{
-    GUI gui = new GUI();
-
-
+    GUI gui;
     // For debugging, see render()
     static boolean renderDebug = false; //true;
 
-    void game(IWorldInfo gamemanager) {
-        IGameObject[] gameobjects= gamemanager.GetAllGameObjects();
-        gui.fg.clearRect(0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);    // Clear everything
+    void game(IWorldInfo worldInfo) {
+        IGameObject[] gameobjects= worldInfo.GetAllGameObjects();
+        gui.fg.clearRect(0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);    // Clear everything
         gui.fg.setFill(Color.WHITE);
-        gui.render.Background();
+        Background();
         gui.fg.setFont(Font.font(18));
         //Todo  points
         for (int i=0; i<gameobjects.length; i++){
@@ -40,5 +38,9 @@ public class Render{
     void menu() {
         gui.fg.clearRect(0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);
         gui.bg.drawImage(gui.assets.menupic, 0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);
+    }
+
+    public Render(GUI gui) {
+        this.gui=gui;
     }
 }

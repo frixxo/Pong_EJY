@@ -23,13 +23,15 @@ import static java.lang.System.out;
 
 
 public class GUI extends Application implements IObserver {
-    Assets assets = new Assetss();
-    Render render= new Render();
+
+    Render render= new Render(this);
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT = 400;
     private boolean running = false;    // Is game running?
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
     private final IWorldInfo worldInfo = (IWorldInfo) gameManager;
+    public IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
+    Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
 
     // ------- Keyboard handling ----------------------------------
     private InputSystem[] players = worldInfo.GetPlayers();
@@ -149,12 +151,11 @@ public class GUI extends Application implements IObserver {
         String k = ((MenuItem) e.getSource()).getText();
         switch (k) {
             case "Duckie":
-               Duckie duckie = new Duckie(X[0], X[1], X[2]);
+               Duckie duckie = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
                 break;
             case "Classic":
                //TODO Classic classic = new Classic(X[0], X[1], X[2]);
             case "Cool":
-                Cool cool = new Cool(X[0], X[1], X[2]);
                 break;
             default:
                 throw new IllegalArgumentException("No such menu choice " + k);
