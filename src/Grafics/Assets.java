@@ -3,6 +3,9 @@ package Grafics;
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
+import model.Ball;
+import model.IGameObject;
+import model.Paddle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +31,7 @@ public abstract class Assets {
     // ------------ Handling Colors and Images ------------------------
     public final Color colorFgText = Color.WHITE;
     public final Image menupic = getImage("pong.png");
-
+    private Image   background;
     public final String leftPaddle = "coolbluepaddle.png";
     public final String rightPaddle = "coolredpaddle.png";
 
@@ -37,7 +40,7 @@ public abstract class Assets {
         // bind common, for all themes, objects/classes  (none right now)
     }
 
-    public abstract Image getBackground();  // Implemented by subclasses
+
 
 
 
@@ -78,5 +81,33 @@ public abstract class Assets {
 
     private AudioClip getSound(String fileName) {
         return new AudioClip(SOUND_DIR + fileName);
+    }
+
+    public Image GetBackground(){
+        return background;
+    }
+
+    public void SetTheme(String theme, IGameObject ball, IGameObject rightpaddle, IGameObject leftpaddle) {
+    if(theme.equals("Duckie")){
+        background = getImage("duckieBg");
+
+        bind(ball,"duckieBall");
+        bind(rightpaddle, "coolredpaddle");
+        bind(leftpaddle, "coolbluepaddle");
+    }
+    if(theme.equals("Classic")){
+            background = getImage("classicBg");
+
+            bind(ball,"classicBall");
+            bind(rightpaddle, "classicpaddle");
+            bind(leftpaddle, "classicpaddle");
+        }
+        if(theme.equals("Cool")){
+            background = getImage("coolBg");
+
+            bind(ball,"coolBall");
+            bind(rightpaddle, "coolredpaddle");
+            bind(leftpaddle, "coolbluepaddle");
+        }
     }
 }

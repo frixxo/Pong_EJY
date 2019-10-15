@@ -19,6 +19,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.Ball;
+import model.IGameObject;
 import model.Paddle;
 
 import static java.lang.System.out;
@@ -26,7 +28,8 @@ import static java.lang.System.out;
 
 
 public class GUI extends Application implements IObserver {
-    private Assets assets;
+    Assets assets;
+    Render render;
     static final int GAME_WIDTH = 600;
     static final int GAME_HEIGHT= 400;
     private boolean running = false;    // Is game running?
@@ -102,7 +105,7 @@ public class GUI extends Application implements IObserver {
     private void newGame() {
         // GUI handling
         menu.fixMenusNewGame();
-        Render.Background();
+        render.Background();
 
         // Build the model
         gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
@@ -116,7 +119,7 @@ public class GUI extends Application implements IObserver {
     private void killGame() {
         timer.stop();
         menu.fixMenusKillGame();
-        Render.menu();
+        render.menu();
         running = false;
     }
 
@@ -146,7 +149,20 @@ public class GUI extends Application implements IObserver {
     }
 
     private void handleTheme(ActionEvent e){
-        //TODO
+        IGameObject[] X=gameManager.GetAllGameObjects();
+        String k = ((MenuItem) e.getSource()).getText();
+        switch (k) {
+            case "Duckie":
+                assets.SetTheme("Duckie",X[0],X[1],X[2]);
+                break;
+            case "Classic":
+                assets.SetTheme("Classic",X[0],X[1],X[2]);
+            case "Cool":
+                assets.SetTheme("Cool",X[0],X[1],X[2]);
+                break;
+            default:
+                throw new IllegalArgumentException("No such menu choice " + k);
+        }
     }
 
     // -------------- Build Scene and start graphics ---------------
@@ -161,7 +177,6 @@ public class GUI extends Application implements IObserver {
         BorderPane root = new BorderPane();
         root.setTop(menu);
 
-        Render Render = new Render();
 
         // Drawing areas
         Canvas background = new Canvas(GAME_WIDTH, GAME_HEIGHT);
@@ -174,7 +189,7 @@ public class GUI extends Application implements IObserver {
 
         timer = new AnimationTimer() {
             public void handle(long now) {
-                Render.game();
+                render.game(gameManager);
                 gameManager.Notify();
             }
         };
@@ -200,7 +215,11 @@ public class GUI extends Application implements IObserver {
 
     public void Update() //Updates every frame
     {
-        //TODO
+        IGameObject[] gameObjects=gameManager.GetAllGameObjects();
+        for(int i =0; i <gameObjects.length;i++){
+            gameObjects[i].Update();
+        }
+
     }
 
     public static void main(String[] args) {

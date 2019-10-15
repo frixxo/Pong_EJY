@@ -7,39 +7,43 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.IGameObject;
+import model.Rigbody;
 
-public class Render extends GUI{
+public class Render{
+    GUI gui = new GUI();
 
 
     // For debugging, see render()
     static boolean renderDebug = false; //true;
 
-    void game() {
-        /* TODO
-        fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);    // Clear everything
-        fg.setFill(Assets.colorFgText);
-        fg.setFont(Font.font(18));
-        fg.fillText("Points: " + pong.getPointsLeft(), 10, 20);
-        fg.fillText("Points: " + pong.getPointsRight(), 500, 20);
-        for (IPositionable d : pong.getPositionables()) {
+    void game(GM gamemanager) {
+        IGameObject[] gameobjects=gamemanager.GetAllGameObjects();
+        gui.fg.clearRect(0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);    // Clear everything
+        gui.fg.setFill(Color.WHITE);
+        gui.render.Background();
+        gui.fg.setFont(Font.font(18));
+        //Todo  points
+        for (int i=0; i<gameobjects.length; i++){
             if (renderDebug) {
-                fg.strokeRect(d.getX(), d.getY(), d.getWidth(), d.getHeight());
+                gui.fg.strokeRect(gameobjects[i].getX(), gameobjects[i].getY(), gameobjects[i].getWidth(), gameobjects[i].getHeight());
             } else {
-                fg.drawImage(assets.get(d), d.getX(), d.getY(), d.getWidth(), d.getHeight());
+                gui.fg.drawImage(gui.assets.get(gameobjects[i]), gameobjects[i].getX(), gameobjects[i].getY(), gameobjects[i].getWidth(), gameobjects[i].getHeight());
             }
-        }*/
+        }
     }
 
      void Background() {
         if (!renderDebug) {
-            bg.drawImage(Assets.getBackground(), 0, 0, GAME_WIDTH, GAME_HEIGHT);
+            gui.bg.drawImage(gui.assets.GetBackground(), 0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);
         }
     }
 
     void menu() {
-        fg.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-        bg.drawImage(Assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+        gui.fg.clearRect(0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);
+        gui.bg.drawImage(gui.assets.menupic, 0, 0, gui.GAME_WIDTH, gui.GAME_HEIGHT);
     }
 }
