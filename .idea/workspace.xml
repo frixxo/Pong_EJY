@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c16362a3-2ad7-4729-8c84-a15b02f75fff" name="Default Changelist" comment="probably fixed collision method, added pong class">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Pong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Collider.java" afterDir="false" />
+    <list default="true" id="349d0013-3322-4994-bd94-c27a0537c7b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/Assetss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Assetss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/Cool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Cool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/Duckie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Duckie.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
