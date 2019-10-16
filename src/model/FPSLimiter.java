@@ -7,7 +7,7 @@ public class FPSLimiter {
         reset();
     }
 
-    public boolean isFPS(double fps){
+    public boolean isFPS(double fps) {
         // used to limit fps under a certain threshold
         // ex. if fps = 30 then whatever methods uses it will always be called less than 30 times per sec
         // even in a while (true) loop

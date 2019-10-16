@@ -24,12 +24,11 @@ public class Paddle implements IGameObject, IControllable {
     private IWorldInfo worldInfo; //reference to world
 
     public Vector GetSize(){return new Vector(paddle.getWidth(),paddle.getHeight());}
-    public int getSpeed(){ return paddle.getSpeed(); }
+    public double getSpeed(){ return paddle.getSpeed(); }
     public void setVelocity(int speed){ paddle.setSpeed(speed);}
     public Vector GetPosition() { return position; }
 
-    public void Update() //Updates every frame
-    {
+    public void Update() {
         if (update.isFPS(60)) {
             move(direction);
         }
