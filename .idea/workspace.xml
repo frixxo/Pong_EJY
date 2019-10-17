@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,11 +85,20 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/Ball.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/src/Graphics/Render.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((Ball)gameobjects[i]).position" custom="model.Ball" />
+        <watch expression="((Paddle)gameobjects[i]).position" custom="model.Paddle" />
+        <watch expression="((Paddle)gameobjects[i]).worldInfo" custom="model.Paddle" />
+        <watch expression="((Ball)gameobjects[i]).position" custom="model.Ball" />
+        <watch expression="((Ball)gameobjects[i]).position" custom="model.Ball" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
