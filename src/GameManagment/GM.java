@@ -22,7 +22,7 @@ public class GM implements IObservable, IWorldInfo{
         worldSize = new Vector(worldWidth, worldHeight);
 
         Vector StartPositionBall = new Vector(0,0);
-        double DisanceFromMidPaddle = 0;
+        double DisanceFromMidPaddle = 280;
 
         IControll Player1 = new InputSystem();
         IControll Player2 = new InputSystem();

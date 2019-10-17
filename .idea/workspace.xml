@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pong_EJY.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pong_EJY.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +25,7 @@
   <component name="ProjectId" id="1SFiYKOYkwjoKVz33MENMQhVd9A" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PATH_TO_FX$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
@@ -93,7 +94,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Graphics/Render.java</url>
-          <line>25</line>
+          <line>24</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
