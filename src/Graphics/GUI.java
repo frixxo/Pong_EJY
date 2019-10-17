@@ -21,7 +21,6 @@ import model.IGameObject;
 
 import static java.lang.System.out;
 
-
 public class GUI extends Application implements IObserver {
 
     Render render= new Render();
@@ -103,7 +102,7 @@ public class GUI extends Application implements IObserver {
     private void newGame() {
         // Graphics.GUI handling
         menu.fixMenusNewGame();
-        render.Background(bg,assets);
+        render.Background(fg,bg,assets);
 
         // Build the model
         gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
@@ -139,7 +138,7 @@ public class GUI extends Application implements IObserver {
     private void handleOptions(ActionEvent e) {
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if (i.isSelected()) {
-           //TODO gameManager.SetPlayerToAI(1);
+           gameManager.SetPlayerToAI(1);
             out.println("AI on");
         } else {
             out.println("AI off");
@@ -203,8 +202,6 @@ public class GUI extends Application implements IObserver {
         menu.fixMenusKillGame();
         bg.drawImage(assets.menupic, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-        //TODO EventBus.INSTANCE.register(this);
-
         // Show on screen
         primaryStage.show();
     }
@@ -215,7 +212,6 @@ public class GUI extends Application implements IObserver {
         for (int i = 0; i < gameObjects.length; i++) {
             gameObjects[i].Update();
         }
-        render.game(worldInfo,fg,bg,assets);
 
     }
 

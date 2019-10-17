@@ -78,6 +78,7 @@ public class PongMenu extends MenuBar {
         RadioMenuItem classic = new RadioMenuItem("Classic");
         cool.setToggleGroup(toggleGroup);
         duckie.setToggleGroup(toggleGroup);
+        classic.setToggleGroup(toggleGroup);
         menuThemes.getItems().addAll(cool, duckie,classic);
         return menuThemes;
     }
