@@ -6,7 +6,7 @@ import GameManagment.IWorldInfo;
 
 public class Paddle implements IGameObject, IControllable {
 
-    private Rigbody paddle = new Rigbody(200, 50, 5);
+    private Rigbody paddle = new Rigbody(5, 50, 5);
     private FPSLimiter update = new FPSLimiter();
 
     // define the start position
