@@ -21,7 +21,7 @@ public class GM implements IObservable, IWorldInfo{
     public GM(IObserver gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
         worldSize = new Vector(worldWidth, worldHeight);
 
-        Vector StartPositionBall = new Vector(0,0);
+        Vector StartPositionBall = new Vector(worldWidth/2,worldHeight/2);
         double DisanceFromMidPaddle = 280;
 
         IControll Player1 = new InputSystem();
@@ -65,7 +65,7 @@ public class GM implements IObservable, IWorldInfo{
 
         try {
             AI t = (AI)swapPlayer;
-        } catch (IncompatibleClassChangeError e)
+        } catch (ClassCastException e)
         {
             controlls[playerIndex] = ai;
             HashSet<IObserver> set = new HashSet<IObserver>();

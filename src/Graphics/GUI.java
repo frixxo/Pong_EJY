@@ -28,7 +28,7 @@ public class GUI extends Application implements IObserver {
     static final int GAME_HEIGHT = 400;
     private boolean running = false;    // Is game running?
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
-    private final IWorldInfo worldInfo = (IWorldInfo) gameManager;
+    private IWorldInfo worldInfo = (IWorldInfo) gameManager;
     IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
 
@@ -51,7 +51,7 @@ public class GUI extends Application implements IObserver {
                 if (players.length > 1) players[1].ChangeDirection(1);
                 break;
             case A:
-                if (players.length > 0) players[1].ChangeDirection(-1);
+                if (players.length > 1) players[1].ChangeDirection(-1);
                 break;
             default:  // Nothing
         }
@@ -70,10 +70,10 @@ public class GUI extends Application implements IObserver {
                 if (players.length > 0) players[0].ChangeDirection(0);
                 break;
             case A:
-                if (players.length > 1) players[0].ChangeDirection(0);
+                if (players.length > 1) players[1].ChangeDirection(0);
                 break;
             case Q:
-                if (players.length > 1) players[0].ChangeDirection(0);
+                if (players.length > 1) players[1].ChangeDirection(0);
                 break;
             default: // Nothing
         }
@@ -106,7 +106,10 @@ public class GUI extends Application implements IObserver {
 
         // Build the model
         gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
-        InputSystem[] players = worldInfo.GetPlayers();
+        worldInfo = (IWorldInfo)gameManager;
+        players = worldInfo.GetPlayers();
+        gameObjects = worldInfo.GetAllGameObjects();
+        assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
 
         // Start game
         timer.start();
@@ -139,9 +142,9 @@ public class GUI extends Application implements IObserver {
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if (i.isSelected()) {
            gameManager.SetPlayerToAI(1);
-            out.println("AI on");
+           out.println("AI on");
         } else {
-            gameManager.SetPlayerToAI(0);
+            gameManager.SetAITOPlayer(1);
             out.println("AI off");
         }
     }

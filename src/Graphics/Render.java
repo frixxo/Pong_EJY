@@ -22,7 +22,7 @@ public class Render{
                         gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
 
             } else {
-                fg.drawImage(assets.get(gameobjects[i]), (GUI.GAME_WIDTH-gameobjects[i].GetPosition().GetX()),
+                fg.drawImage(assets.get(gameobjects[i]), (gameobjects[i].GetPosition().GetX()),
                         (GUI.GAME_HEIGHT-gameobjects[i].GetPosition().GetY()), gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
             }
         }

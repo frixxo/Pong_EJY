@@ -29,9 +29,7 @@ public class Paddle implements IGameObject, IControllable {
     public Vector GetPosition() { return position; }
 
     public void Update() {
-        if (update.isFPS(60)) {
-            move(direction);
-        }
+        move(direction);
     }
 
     public void DoAction() //Is called when an input is formed.

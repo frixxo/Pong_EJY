@@ -4,8 +4,8 @@ import GameManagment.IWorldInfo;
 public class Ball implements IGameObject{
 
     private int size = 30;
-    private Rigbody ball = new Rigbody(size, size, 8, new Vector(1, 0));
-    private FPSLimiter update = new FPSLimiter();
+    private Rigbody ball;
+    private FPSLimiter update;
 
     private IWorldInfo worldInfo;
     private Vector position;
@@ -13,6 +13,8 @@ public class Ball implements IGameObject{
     public Ball(Vector position, IWorldInfo worldInfo){
         this.worldInfo = worldInfo;
         this.position = position;
+        this.ball = new Rigbody(size, size, 4, new Vector(1,0));
+        this.update = new FPSLimiter();
     }
 
     public Vector GetSize(){ return new Vector(ball.getWidth(),ball.getHeight()); }
