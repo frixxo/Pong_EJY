@@ -102,7 +102,7 @@ public class GUI extends Application implements IObserver {
     private void newGame() {
         // Graphics.GUI handling
         menu.fixMenusNewGame();
-        render.Background(fg,bg,assets);
+        render.Background(bg,assets);
 
         // Build the model
         gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
@@ -155,6 +155,7 @@ public class GUI extends Application implements IObserver {
             case "Classic":
                //TODO Classic classic = new Classic(X[0], X[1], X[2]);
             case "Cool":
+                Cool cool = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
                 break;
             default:
                 throw new IllegalArgumentException("No such menu choice " + k);

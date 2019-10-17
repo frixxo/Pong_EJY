@@ -5,9 +5,9 @@ import model.IGameObject;
 public class Duckie extends Assets{
 
     public Duckie(IGameObject ball, IGameObject rightpaddle, IGameObject leftpaddle) {
-        background = getImage("duckieBg");
-        bind(ball, "duckieBall");
-        bind(rightpaddle, "coolredpaddle");
-        bind(leftpaddle, "coolbluepaddle");
+        background = getImage("duckieBg.png");
+        bind(ball, "duckieBall.png");
+        bind(rightpaddle, "coolredpaddle.png");
+        bind(leftpaddle, "coolbluepaddle.png");
     }
 }

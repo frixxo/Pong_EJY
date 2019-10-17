@@ -13,8 +13,7 @@ public class Render{
     void game(IWorldInfo worldInfo,GraphicsContext fg,GraphicsContext bg,Assets assets) {
         IGameObject[] gameobjects= worldInfo.GetAllGameObjects();
         fg.clearRect(0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);    // Clear everything
-        fg.setFill(Color.WHITE);
-        Background(fg,bg,assets);
+        Background(bg,assets);
         fg.setFont(Font.font(18));
         //Todo  points
         for (int i=0; i<gameobjects.length; i++){
@@ -23,22 +22,21 @@ public class Render{
                         gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
 
             } else {
-                fg.drawImage(assets.get(gameobjects[i]), gameobjects[i].GetPosition().GetX(),
-                        gameobjects[i].GetPosition().GetY(), gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
+                fg.drawImage(assets.get(gameobjects[i]), (GUI.GAME_WIDTH-gameobjects[i].GetPosition().GetX()),
+                        (GUI.GAME_HEIGHT-gameobjects[i].GetPosition().GetY()), gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
             }
         }
     }
 
-     void Background(GraphicsContext fg,GraphicsContext bg, Assets assets) {
+     void Background(GraphicsContext bg, Assets assets) {
         if (!renderDebug) {
-            fg.clearRect(0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);    // Clear everything
-            fg.setFill(Color.WHITE);
-            bg.drawImage(assets.GetBackground(), 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
+
+            bg.drawImage(assets.background, 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
         }
     }
 
     void menu(GraphicsContext fg,GraphicsContext bg,Assets assets) {
         fg.clearRect(0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
-        bg.drawImage(assets.menupic, 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
+        bg.drawImage(assets.background, 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
     }
 }

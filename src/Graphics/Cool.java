@@ -6,11 +6,11 @@ import model.IGameObject;
 public class Cool extends Assets {
 
     public Cool(IGameObject ball, IGameObject rightpaddle, IGameObject leftpaddle){
-        background = getImage("coolBg");
+        background = getImage("coolBg.png");
 
-        bind(ball, "coolBall");
-        bind(rightpaddle, "coolredpaddle");
-        bind(leftpaddle, "coolbluepaddle");
+        bind(ball, "coolBall.png");
+        bind(rightpaddle, "coolredpaddle.png");
+        bind(leftpaddle, "coolbluepaddle.png");
     }
 
 }

@@ -32,8 +32,6 @@ public abstract class Assets {
     public final Color colorFgText = Color.WHITE;
     final Image menupic = getImage("pong.png");
     Image background;
-    public final String leftPaddle = "coolbluepaddle.png";
-    public final String rightPaddle = "coolredpaddle.png";
 
 
     {
