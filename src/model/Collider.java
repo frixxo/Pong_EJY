@@ -12,14 +12,15 @@ public class Collider {
             return false;
         }
         return true;
+
+
     }
 
     public static boolean isCollision(Ball ball, double y) {
         // checks only floor and ceiling
         // walls has nothing to do with collision
-        // x,y starts at bottom-left, right?
-        if ((ball.GetMovmentVector().y > 0 && ball.GetPosition().y <= 0) ||
-                (ball.GetMovmentVector().y < 0 && ball.GetPosition().y >= y)){
+        if ((ball.GetMovmentVector().y < 0 && ball.GetPosition().y - ball.GetSize().y <= 0) ||
+                (ball.GetMovmentVector().y > 0 && ball.GetPosition().y >= y)){
             return true;
         }
         return false;

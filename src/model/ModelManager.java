@@ -22,44 +22,49 @@ public class ModelManager implements IObserver {
     private final IWorldInfo worldInfo;
 
     // back-ups
-    private final Ball backUpBall;
-    private final Paddle backUpLeft;
-    private final Paddle backUpRight;
+    private final double ballSpeed;
+    private final Vector ballPos;
+    private final Vector leftPos;
+    private final Vector rightPos;
 
     public ModelManager(Ball ball, Paddle left, Paddle right, IWorldInfo worldInfo){
         this.ball = ball;
         this.left = left;
         this.right = right;
         this.worldInfo = worldInfo;
-        backUpBall = ball;
-        backUpLeft = left;
-        backUpRight = right;
+
+        ballSpeed = ball.GetSpeed();
+        ballPos = new Vector(ball.GetPosition().x, ball.GetPosition().y);
+        leftPos = new Vector(left.GetPosition().x, left.GetPosition().y);
+        rightPos = new Vector(right.GetPosition().x, right.GetPosition().y);
     }
 
     public void Update(){
-        if (fps.isFPS(60)){
-            if (Collider.isCollision(ball, left) || Collider.isCollision(ball, right)){
-                ball.BounceX();
-                ball.boost();
-            } else { // if no collision with the paddles then possibly is winning
-                paddles winner = checkVictory();
-                if (winner != paddles.NONE){
-                    roundOver = true;
-                    switch (winner) {
-                        case LEFT:
-                            score[0]++;
-                            break;
-                        case RIGHT:
-                            score[1]++;
-                            break;
-                    }
-                }
-            }
 
-            if (Collider.isCollision(ball, worldInfo.GetWorldSize().y)){
-                ball.BounceY();
-                ball.boost();
+        if ((ball.GetMovmentVector().x < 0 && Collider.isCollision(ball, left)) ||
+                ball.GetMovmentVector().x > 0 && Collider.isCollision(ball, right)) {
+            ball.BounceX();
+            ball.boost();
+        } else { // if no collision with the paddles then possibly is winning
+            paddles winner = checkVictory();
+            if (winner != paddles.NONE){
+                roundOver = true;
+                switch (winner) {
+                    case LEFT:
+                        score[0]++;
+                        break;
+                    case RIGHT:
+                        score[1]++;
+                        break;
+                }
+
+                reset();
             }
+        }
+
+        if (Collider.isCollision(ball, worldInfo.GetWorldSize().y)){
+            ball.BounceY();
+            ball.boost();
         }
     }
 
@@ -72,14 +77,16 @@ public class ModelManager implements IObserver {
     }
 
     public void reset() {
-        ball = backUpBall;
-        left = backUpLeft;
-        right = backUpRight;
+        ball.BounceX();
+        ball.SetSpeed(ballSpeed);
+        ball.SetPosition(ballPos);
+        left.SetPosition(leftPos);
+        right.SetPosition(rightPos);
     }
 
     private paddles checkVictory() {
         if (ball.GetPosition().x <= 0){ return paddles.LEFT; }
-        else if (ball.GetPosition().x >= worldInfo.GetWorldSize().x){ return paddles.RIGHT; }
+        else if (ball.GetPosition().x + ball.GetSize().x >= worldInfo.GetWorldSize().x){ return paddles.RIGHT; }
         return paddles.NONE;
     }
 
