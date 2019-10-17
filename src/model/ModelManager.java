@@ -3,7 +3,7 @@ package model;
 import GameManagment.IObserver;
 import GameManagment.IWorldInfo;
 
-public class Pong implements IObserver {
+public class ModelManager implements IObserver {
     // the game class Pong, currently has functions as listed below:
     /*
     *   has a getter for player scores, setter is automatic called by class
@@ -26,7 +26,7 @@ public class Pong implements IObserver {
     private final Paddle backUpLeft;
     private final Paddle backUpRight;
 
-    public Pong(Ball ball, Paddle left, Paddle right, IWorldInfo worldInfo){
+    public ModelManager(Ball ball, Paddle left, Paddle right, IWorldInfo worldInfo){
         this.ball = ball;
         this.left = left;
         this.right = right;
@@ -40,6 +40,7 @@ public class Pong implements IObserver {
         if (fps.isFPS(60)){
             if (Collider.isCollision(ball, left) || Collider.isCollision(ball, right)){
                 ball.BounceX();
+                ball.boost();
             } else { // if no collision with the paddles then possibly is winning
                 paddles winner = checkVictory();
                 if (winner != paddles.NONE){
@@ -53,11 +54,11 @@ public class Pong implements IObserver {
                             break;
                     }
                 }
-
             }
 
             if (Collider.isCollision(ball, worldInfo.GetWorldSize().y)){
                 ball.BounceY();
+                ball.boost();
             }
         }
     }
@@ -65,18 +66,18 @@ public class Pong implements IObserver {
     public int getScore(int playerIndex){
         try{
             return score[playerIndex];
-        } catch(IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             return -1;
         }
     }
 
-    public void reset(){
+    public void reset() {
         ball = backUpBall;
         left = backUpLeft;
         right = backUpRight;
     }
 
-    private paddles checkVictory(){
+    private paddles checkVictory() {
         if (ball.GetPosition().x <= 0){ return paddles.LEFT; }
         else if (ball.GetPosition().x >= worldInfo.GetWorldSize().x){ return paddles.RIGHT; }
         return paddles.NONE;

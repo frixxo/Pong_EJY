@@ -15,23 +15,21 @@ public class Ball implements IGameObject{
         this.position = position;
     }
 
-    public Vector GetSize(){return new Vector(ball.getWidth(),ball.getHeight());}
+    public Vector GetSize(){ return new Vector(ball.getWidth(),ball.getHeight()); }
     public Vector GetPosition() { return position; }
-    public Vector GetMovmentVector() {return ball.getVelocity();}
+    public Vector GetMovmentVector() { return ball.getVelocity(); }
 
-    public void Update()
-    { //Updates every frame
-        if (update.isFPS(60)){
-            move();
-        }
+    public void Update() { //Updates every frame
+        move();
+
     }
 
-    public void move ()
-    {
+    public void move () {
         this.position.x += ball.deltaSpeedX();
         this.position.y += ball.deltaSpeedY();
     }
 
+    public void boost() { ball.setSpeed(ball.getSpeed() * 1.05); }
     public void BounceY() { this.position.y *= -1; }
     public void BounceX() { this.position.x *= -1; }
 }

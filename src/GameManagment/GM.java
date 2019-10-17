@@ -16,6 +16,7 @@ public class GM implements IObservable, IWorldInfo{
     private IControll[] controlls;
 
     private Vector worldSize;
+    private int score[] = {0,0};
 
     public GM(IObserver gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
         worldSize = new Vector(worldWidth, worldHeight);
@@ -35,8 +36,10 @@ public class GM implements IObservable, IWorldInfo{
         Player1.Set((Paddle)gameObjects[1]);
         Player2.Set((Paddle)gameObjects[2]);
 
+        ModelManager modelManager = new ModelManager((Ball) gameObjects[0], (Paddle) gameObjects[1], (Paddle) gameObjects[2], (IWorldInfo)this);
 
         observers = new IObserver[]{ //All nonGameObject observers in the game
+                modelManager,
                 gui
         };
         HashSet<IObserver> set = new HashSet<IObserver>(); //Adding the gameObjects to the observers
@@ -130,6 +133,16 @@ public class GM implements IObservable, IWorldInfo{
 
     public Vector GetWorldSize() {
         return worldSize;
+    }
+
+    public void SetScore(int newScore[])
+    {
+        score = newScore;
+    }
+
+    public int[] GetScore()
+    {
+        return score;
     }
     //endregion
 }
