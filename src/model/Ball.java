@@ -20,9 +20,8 @@ public class Ball implements IGameObject{
     public Vector GetMovmentVector() { return ball.getVelocity(); }
 
     public void Update() { //Updates every frame
-        if (update.isFPS(60)){
-            move();
-        }
+        move();
+
     }
 
     public void move () {

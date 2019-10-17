@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameManagment/IWorldInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/IWorldInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ball.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +17,11 @@
   </component>
   <component name="ProjectId" id="1SFiYKOYkwjoKVz33MENMQhVd9A" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javafx-sdk-12.0.2/lib" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -37,7 +39,7 @@
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
       <module name="Pong_EJY" />
-      <option name="VM_PARAMETERS" value="--module-path C:\java-devel\javafx-sdk-13\lib --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media" />
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules=javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Graphics.*" />
@@ -79,5 +81,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/Ball.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

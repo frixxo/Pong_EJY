@@ -187,8 +187,8 @@ public class GUI extends Application implements IObserver {
 
         timer = new AnimationTimer() {
             public void handle(long now) {
-                render.game(worldInfo,fg,bg,assets);
                 gameManager.Notify();
+                render.game(worldInfo,fg,bg,assets);
             }
         };
 
