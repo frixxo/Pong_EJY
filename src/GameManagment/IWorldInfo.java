@@ -12,7 +12,7 @@ public interface IWorldInfo {
     Ball GetBall();
     InputSystem[] GetPlayers();
     Vector GetWorldSize();
-    void SetScore (int newScore);
-    int GetScore();
+    void SetScore (int[] newScore);
+    int[] GetScore();
     //TODO add methods
 }
