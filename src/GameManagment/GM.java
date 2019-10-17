@@ -35,8 +35,10 @@ public class GM implements IObservable, IWorldInfo{
         Player1.Set((Paddle)gameObjects[1]);
         Player2.Set((Paddle)gameObjects[2]);
 
+        ModelManager modelManager = new ModelManager((Ball) gameObjects[0], (Paddle) gameObjects[1], (Paddle) gameObjects[2], (IWorldInfo)this);
 
         observers = new IObserver[]{ //All nonGameObject observers in the game
+                modelManager,
                 gui
         };
         HashSet<IObserver> set = new HashSet<IObserver>(); //Adding the gameObjects to the observers

@@ -3,7 +3,7 @@ package model;
 import GameManagment.IObserver;
 import GameManagment.IWorldInfo;
 
-public class Pong implements IObserver {
+public class ModelManager implements IObserver {
     // the game class Pong, currently has functions as listed below:
     /*
     *   has a getter for player scores, setter is automatic called by class
@@ -26,7 +26,7 @@ public class Pong implements IObserver {
     private final Paddle backUpLeft;
     private final Paddle backUpRight;
 
-    public Pong(Ball ball, Paddle left, Paddle right, IWorldInfo worldInfo){
+    public ModelManager(Ball ball, Paddle left, Paddle right, IWorldInfo worldInfo){
         this.ball = ball;
         this.left = left;
         this.right = right;
