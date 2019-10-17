@@ -1,45 +1,46 @@
 package model;
 import GameManagment.IWorldInfo;
 
-public class Ball implements IGameObject{
-
-    private int size = 40;
-    private Rigbody ball;
-
+public class Ball extends Rigbody implements IGameObject{
+    // TODO this is not used here
     private IWorldInfo worldInfo;
-    private Vector position;
+
+    private Vector velocity;
 
     public Ball(Vector position, IWorldInfo worldInfo){
+        super(40, 40, 3, position);
         this.worldInfo = worldInfo;
-        this.position = position;
-        this.ball = new Rigbody(size, size, 2, new Vector(1,0));
-
-        // starts on a random slope between [-0.2, 0.2]
-        ball.setVelocityY(Math.random() / 2.5 - 0.2);
+        velocity = new Vector(1,0);
+        velocity.y = GetVariation(0.2);
     }
-
-    public Vector GetSize(){ return new Vector(ball.getWidth(),ball.getHeight()); }
-    public Vector GetPosition() { return position; }
-    public Vector GetMovmentVector() { return ball.getVelocity(); }
-    public double GetSpeed(){ return ball.getSpeed(); }
-    public void SetPosition(Vector pos) { position.x=pos.x; position.y=pos.y; }
-    public void SetSpeed(double spd) { ball.setSpeed(spd); }
 
     public void Update() { //Updates every frame
         move();
     }
 
     public void move () {
-        this.position.x += ball.deltaSpeedX();
-        this.position.y += ball.deltaSpeedY();
+       position.x += deltaSpeedX();
+       position.y += deltaSpeedY();
     }
 
     public void boost() {
-        // variation index between [-0.1, 0.1]
-        ball.setVelocityY(ball.getVelocity().y + Math.random() / 5 - 0.1);
-        ball.setSpeed(ball.getSpeed() * 1.05);
+        velocity.y += GetVariation(0.2);
+        speed *= 1.05;
     }
 
-    public void BounceY() { ball.setVelocityY(ball.getVelocity().y * -1); }
-    public void BounceX() { ball.setVelocityX(ball.getVelocity().x * -1); }
+    public Vector GetVelocity() { return new Vector(velocity.x, velocity.y); }
+    public Vector GetMovmentVector() { return new Vector(velocity.x, velocity.y); }
+    public void BounceY() { velocity.y *= -1; }
+    public void BounceX() { velocity.x *= -1; }
+    public void SetVelocityX(double x) { velocity.x = x; }
+    public void SetVelocityY(double y) { velocity.y = y; }
+
+    private double deltaSpeedX() { return speed * velocity.x; }
+    private double deltaSpeedY() { return speed * velocity.y; }
+    private double GetVariation(double var) {
+        // chooses a random number from interval [-var, var]
+        double divisor = 1 / (var * 2);
+        return Math.random() / divisor - var;
+    }
+
 }

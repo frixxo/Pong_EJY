@@ -5,22 +5,28 @@ public class Collider {
     // static class methods, can be used without instantiating the class
     public static boolean isCollision(Ball ball, Paddle paddle) {
         // checks if the ball collide with the paddle
-        if (ball.GetPosition().y - ball.GetSize().y > paddle.GetPosition().y ||
-            ball.GetPosition().y < paddle.GetPosition().y - paddle.GetSize().y ||
-                (ball.GetPosition().x > paddle.GetPosition().x + paddle.GetSize().x && ball.GetMovmentVector().x < 0) ||
-                (ball.GetPosition().x + ball.GetSize().x < paddle.GetPosition().x && ball.GetMovmentVector().x > 0)) {
+        // the paddle the ball is colliding with must be specified in some way
+        Vector ballSize = ball.GetSize();
+        Vector ballPos = ball.GetPosition();
+        Vector paddleSize = paddle.GetSize();
+        Vector paddlePos = paddle.GetPosition();
+
+        if (ballPos.y - ballSize.y > paddlePos.y || ballPos.y < paddlePos.y - paddleSize.y ||
+                ballPos.x > paddlePos.x + paddleSize.x || ballPos.x + ballSize.x < paddlePos.x) {
             return false;
         }
         return true;
-
-
     }
 
     public static boolean isCollision(Ball ball, double y) {
-        // checks only floor and ceiling
+        // checks if collides with floor or ceiling
         // walls has nothing to do with collision
-        if ((ball.GetMovmentVector().y < 0 && ball.GetPosition().y - ball.GetSize().y <= 0) ||
-                (ball.GetMovmentVector().y > 0 && ball.GetPosition().y >= y)){
+        Vector movementVector = ball.GetMovmentVector();
+        Vector position = ball.GetPosition();
+        Vector size = ball.GetSize();
+
+        if ((movementVector.y < 0 && position.y - size.y <= 0) ||
+                (movementVector.y > 0 && position.y >= y)){
             return true;
         }
         return false;

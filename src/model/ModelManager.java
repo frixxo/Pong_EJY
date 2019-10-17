@@ -34,15 +34,14 @@ public class ModelManager implements IObserver {
         this.worldInfo = worldInfo;
 
         ballSpeed = ball.GetSpeed();
-        ballPos = new Vector(ball.GetPosition().x, ball.GetPosition().y);
-        leftPos = new Vector(left.GetPosition().x, left.GetPosition().y);
-        rightPos = new Vector(right.GetPosition().x, right.GetPosition().y);
+        ballPos = ball.GetPosition();
+        leftPos = left.GetPosition();
+        rightPos = right.GetPosition();
     }
 
     public void Update(){
-
         if ((ball.GetMovmentVector().x < 0 && Collider.isCollision(ball, left)) ||
-                ball.GetMovmentVector().x > 0 && Collider.isCollision(ball, right)) {
+                (ball.GetMovmentVector().x > 0 && Collider.isCollision(ball, right))) {
             ball.BounceX();
             ball.boost();
         } else { // if no collision with the paddles then possibly is winning
@@ -58,6 +57,7 @@ public class ModelManager implements IObserver {
                         break;
                 }
 
+                System.out.println("["+score[0]+", "+score[1]+"]");
                 reset();
             }
         }
