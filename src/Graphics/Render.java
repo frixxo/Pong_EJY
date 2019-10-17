@@ -30,13 +30,13 @@ public class Render{
 
      void Background(GraphicsContext bg, Assets assets) {
         if (!renderDebug) {
-
-            bg.drawImage(assets.background, 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
+            bg.clearRect(0,0,GUI.GAME_WIDTH,GUI.GAME_WIDTH);
+            bg.drawImage(assets.GetBackground(), 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
         }
     }
 
     void menu(GraphicsContext fg,GraphicsContext bg,Assets assets) {
         fg.clearRect(0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
-        bg.drawImage(assets.background, 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
+        bg.drawImage(assets.menupic, 0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);
     }
 }

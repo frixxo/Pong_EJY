@@ -31,7 +31,7 @@ public abstract class Assets {
     // ------------ Handling Colors and Images ------------------------
     public final Color colorFgText = Color.WHITE;
     final Image menupic = getImage("pong.png");
-    Image background;
+    static Image background;
 
 
     {
@@ -41,7 +41,7 @@ public abstract class Assets {
 
     // -------------- Audio handling -----------------------------
 
-    //public AudioClip hitsound = getSound("ballhitpaddle.wav");
+    //TODO Ljud     public AudioClip hitsound = getSound("ballhitpaddle.wav");
 
     // -------------- Methods binding objects/classes to assets -----------------
 

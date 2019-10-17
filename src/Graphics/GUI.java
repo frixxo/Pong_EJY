@@ -141,6 +141,7 @@ public class GUI extends Application implements IObserver {
            gameManager.SetPlayerToAI(1);
             out.println("AI on");
         } else {
+            gameManager.SetPlayerToAI(0);
             out.println("AI off");
         }
     }
@@ -148,9 +149,10 @@ public class GUI extends Application implements IObserver {
     private void handleTheme(ActionEvent e) {
         IGameObject[] X = worldInfo.GetAllGameObjects();
         String k = ((MenuItem) e.getSource()).getText();
+        Duckie duckie;
         switch (k) {
             case "Duckie":
-               Duckie duckie = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
+                duckie = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
                 break;
             case "Classic":
                //TODO Classic classic = new Classic(X[0], X[1], X[2]);
