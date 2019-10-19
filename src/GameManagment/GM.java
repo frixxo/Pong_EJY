@@ -5,6 +5,8 @@ import Controlls.InputSystem;
 
 import java.util.Arrays;
 import java.util.HashSet;
+
+import Graphics.GUI;
 import model.*;
 
 import javax.swing.*;
@@ -14,13 +16,13 @@ public class GM implements IObservable, IWorldInfo{
     private IObserver[] observers;
     private IGameObject[] gameObjects;
     private IControll[] controlls;
-
+    private GUI gui;
     private Vector worldSize;
     private int score[] = {0,0};
 
     public GM(IObserver gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
         worldSize = new Vector(worldWidth, worldHeight);
-
+        this.gui = (GUI)gui;
         Vector StartPositionBall = new Vector(worldWidth/2,worldHeight/2);
         double DisanceFromMidPaddle = 280;
 
@@ -62,17 +64,14 @@ public class GM implements IObservable, IWorldInfo{
         IControll swapPlayer = controlls[playerIndex];
         IControllable paddle = swapPlayer.GetPuppet();
         IControll ai = new AI((IWorldInfo) this, paddle);
-
-        try {
-            AI t = (AI)swapPlayer;
-        } catch (ClassCastException e)
-        {
-            controlls[playerIndex] = ai;
-            HashSet<IObserver> set = new HashSet<IObserver>();
-            set.addAll(Arrays.asList(observers));
-            set.add((IObserver) ai);
-            observers = set.toArray(observers);
-        }
+        ((Paddle)paddle).GetControll().DeleteMe();
+        ((Paddle)paddle).SetControll((IControll)ai);
+        controlls[playerIndex] = ai;
+        HashSet<IObserver> set = new HashSet<IObserver>();
+        set.addAll(Arrays.asList(observers));
+        set.add((IObserver) ai);
+        observers = set.toArray(observers);
+        gui.SetInputSystem(GetPlayers());
     }
 
     public void SetAITOPlayer(int aiIndex)
@@ -81,17 +80,14 @@ public class GM implements IObservable, IWorldInfo{
         IControllable paddle = swapPlayer.GetPuppet();
         IControll is = new InputSystem();
         is.Set(paddle);
-
-        try {
-            InputSystem t = (InputSystem) swapPlayer;
-        } catch (IncompatibleClassChangeError e)
-        {
-            controlls[aiIndex] = is;
-            HashSet<IObserver> set = new HashSet<IObserver>();
-            set.addAll(Arrays.asList(observers));
-            set.remove((IObserver) swapPlayer);
-            observers = set.toArray(observers);
-        }
+        ((Paddle)paddle).GetControll().DeleteMe();
+        ((Paddle)paddle).SetControll((IControll)is);
+        controlls[aiIndex] = is;
+        HashSet<IObserver> set = new HashSet<IObserver>();
+        set.addAll(Arrays.asList(observers));
+        set.remove((IObserver) swapPlayer);
+        observers = set.toArray(observers);
+        gui.SetInputSystem(GetPlayers());
     }
     //endregion
 
@@ -124,7 +120,7 @@ public class GM implements IObservable, IWorldInfo{
         {
             try{
                 set.add((InputSystem) controlls[i]);
-            } catch (IncompatibleClassChangeError e) {}
+            } catch (ClassCastException e) {}
         }
         InputSystem[] players = new InputSystem[0];
         players = set.toArray(players);

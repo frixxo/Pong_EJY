@@ -35,6 +35,8 @@ public class GUI extends Application implements IObserver {
     // ------- Keyboard handling ----------------------------------
     private InputSystem[] players = worldInfo.GetPlayers();
 
+    public void SetInputSystem (InputSystem[] newPlayers) {players = newPlayers;}
+
     private void keyPressed(KeyEvent event) {
         if (!running) {
             return;
@@ -105,11 +107,11 @@ public class GUI extends Application implements IObserver {
         render.Background(bg,assets);
 
         // Build the model
-        gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
+        /*gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
         worldInfo = (IWorldInfo)gameManager;
         players = worldInfo.GetPlayers();
         gameObjects = worldInfo.GetAllGameObjects();
-        assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
+        assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);*/
 
         // Start game
         timer.start();
@@ -121,6 +123,12 @@ public class GUI extends Application implements IObserver {
         menu.fixMenusKillGame();
         render.menu(fg,bg,assets);
         running = false;
+
+        gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
+        worldInfo = (IWorldInfo)gameManager;
+        players = worldInfo.GetPlayers();
+        gameObjects = worldInfo.GetAllGameObjects();
+        assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
     }
 
     // -------- Event handling (events sent from model to Graphics.GUI) ------------

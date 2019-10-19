@@ -4,6 +4,8 @@ import Controlls.IControll;
 import GameManagment.IObserver;
 import GameManagment.IWorldInfo;
 
+import javax.naming.ldap.Control;
+
 public class Paddle extends Rigbody implements IGameObject, IControllable {
     // define the start position
     private double direction = 0;
@@ -35,5 +37,15 @@ public class Paddle extends Rigbody implements IGameObject, IControllable {
             dir = 0;
         }
         this.position.y += dir * speed;
+    }
+
+    public void SetControll(IControll controll)
+    {
+        this.controll = controll;
+    }
+
+    public IControll GetControll()
+    {
+        return controll;
     }
 }

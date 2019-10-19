@@ -8,4 +8,5 @@ public interface IControll {
     void Action ();
     double GetDirection();
     IControllable GetPuppet();
+    void DeleteMe();
 }

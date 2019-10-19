@@ -28,5 +28,11 @@ public class InputSystem implements IControll {
     }
 
     public IControllable GetPuppet(){return puppet;}
+
+    public void DeleteMe()
+    {
+        puppet = null;
+        direction = 0;
+    }
     //endregion
 }

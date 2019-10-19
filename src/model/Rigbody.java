@@ -1,6 +1,6 @@
 package model;
 
-class Rigbody {
+public class Rigbody {
     // structure parent class for paddle and ball
 
     protected final int width;
