@@ -11,11 +11,8 @@ public class Collider {
         Vector paddleSize = paddle.GetSize();
         Vector paddlePos = paddle.GetPosition();
 
-        if (ballPos.y - ballSize.y > paddlePos.y || ballPos.y < paddlePos.y - paddleSize.y ||
-                ballPos.x > paddlePos.x + paddleSize.x || ballPos.x + ballSize.x < paddlePos.x) {
-            return false;
-        }
-        return true;
+        return !(ballPos.y - ballSize.y > paddlePos.y) && !(ballPos.y < paddlePos.y - paddleSize.y) &&
+                !(ballPos.x > paddlePos.x + paddleSize.x) && !(ballPos.x + ballSize.x < paddlePos.x);
     }
 
     public static boolean isCollision(Ball ball, double y) {
@@ -25,10 +22,7 @@ public class Collider {
         Vector position = ball.GetPosition();
         Vector size = ball.GetSize();
 
-        if ((movementVector.y < 0 && position.y - size.y <= 0) ||
-                (movementVector.y > 0 && position.y >= y)){
-            return true;
-        }
-        return false;
+        return (movementVector.y < 0 && position.y - size.y <= 0) ||
+                (movementVector.y > 0 && position.y >= y);
     }
 }

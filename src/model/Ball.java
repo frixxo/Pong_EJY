@@ -24,11 +24,10 @@ public class Ball extends Rigbody implements IGameObject{
     }
 
     public void boost() {
-        velocity.y += GetVariation(0.2);
+        velocity.y += GetVariation(0.3);
         speed *= 1.05;
     }
 
-    public Vector GetVelocity() { return new Vector(velocity.x, velocity.y); }
     public Vector GetMovmentVector() { return new Vector(velocity.x, velocity.y); }
     public void BounceY() { velocity.y *= -1; }
     public void BounceX() { velocity.x *= -1; }

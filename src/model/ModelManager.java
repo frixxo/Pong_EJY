@@ -50,10 +50,10 @@ public class ModelManager implements IObserver {
                 roundOver = true;
                 switch (winner) {
                     case LEFT:
-                        score[0]++;
+                        score[1]++;
                         break;
                     case RIGHT:
-                        score[1]++;
+                        score[0]++;
                         break;
                 }
 
@@ -64,7 +64,6 @@ public class ModelManager implements IObserver {
 
         if (Collider.isCollision(ball, worldInfo.GetWorldSize().y)){
             ball.BounceY();
-            ball.boost();
         }
     }
 

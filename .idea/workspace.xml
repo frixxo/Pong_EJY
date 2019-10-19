@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="">
+    <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="cleaned code a little bit, made Rigbody parent class of Ball and Paddle">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Controlls/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Controlls/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Collider.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Collider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager$paddles.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager$paddles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/IControll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/IControll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/InputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/InputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Paddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Rigbody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Rigbody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Collider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
