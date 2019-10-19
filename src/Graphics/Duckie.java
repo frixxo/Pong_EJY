@@ -11,4 +11,6 @@ public class Duckie extends Assets{
         bind(rightpaddle, "coolredpaddle.png");
         bind(leftpaddle, "coolbluepaddle.png");
     }
+    @Override
+    public String getTheme(){return "Duckie";}
 }

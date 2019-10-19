@@ -7,6 +7,7 @@ import model.Ball;
 import model.IGameObject;
 import model.Paddle;
 
+import java.awt.event.ActionEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +49,7 @@ public abstract class Assets {
     public void bind(Object object, String imageFileName) {
         Image i = getImage(imageFileName);
         if (i != null) {
+            objectImage.remove(object);
             objectImage.put(object, getImage(imageFileName));
         } else {
             throw new IllegalArgumentException("Missing image: " + IMAGE_DIR + imageFileName);
@@ -81,5 +83,5 @@ public abstract class Assets {
     public Image GetBackground() {
         return background;
     }
-
+    public String getTheme(){return "null";}
 }

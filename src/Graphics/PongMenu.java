@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 
+import java.util.Set;
+
 /*
    The menu for Pong
 
@@ -39,6 +41,7 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(true);
         getItemByText(menuThemes, "Duckie").setDisable(true);
         getItemByText(menuThemes, "Classic").setDisable(true);
+        getItemByText(menuOptions, "Computer player").setDisable(true);
     }
 
     public void fixMenusKillGame() {
@@ -47,6 +50,7 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(false);
         getItemByText(menuThemes, "Duckie").setDisable(false);
         getItemByText(menuThemes, "Classic").setDisable(false);
+        getItemByText(menuOptions, "Computer player").setDisable(false);
     }
 
     // ------------  Helpers -----------------------------
@@ -73,9 +77,11 @@ public class PongMenu extends MenuBar {
         Menu menuThemes = new Menu("Themes");
         ToggleGroup toggleGroup = new ToggleGroup();
         RadioMenuItem cool = new RadioMenuItem("Cool");
-        cool.setSelected(true);
         RadioMenuItem duckie = new RadioMenuItem("Duckie");
         RadioMenuItem classic = new RadioMenuItem("Classic");
+
+        cool.setSelected(true);
+
         cool.setToggleGroup(toggleGroup);
         duckie.setToggleGroup(toggleGroup);
         classic.setToggleGroup(toggleGroup);

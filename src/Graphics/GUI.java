@@ -19,6 +19,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.IGameObject;
 
+import javax.swing.*;
+import java.awt.*;
+
 import static java.lang.System.out;
 
 public class GUI extends Application implements IObserver {
@@ -31,7 +34,6 @@ public class GUI extends Application implements IObserver {
     private IWorldInfo worldInfo = (IWorldInfo) gameManager;
     IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
-
     // ------- Keyboard handling ----------------------------------
     private InputSystem[] players = worldInfo.GetPlayers();
 
@@ -113,9 +115,11 @@ public class GUI extends Application implements IObserver {
         gameObjects = worldInfo.GetAllGameObjects();
         assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);*/
 
+
         // Start game
         timer.start();
         running = true;
+        SetTheme(assets.getTheme());
     }
 
     private void killGame() {
@@ -128,7 +132,7 @@ public class GUI extends Application implements IObserver {
         worldInfo = (IWorldInfo)gameManager;
         players = worldInfo.GetPlayers();
         gameObjects = worldInfo.GetAllGameObjects();
-        assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
+
     }
 
     // -------- Event handling (events sent from model to Graphics.GUI) ------------
@@ -158,21 +162,8 @@ public class GUI extends Application implements IObserver {
     }
 
     private void handleTheme(ActionEvent e) {
-        IGameObject[] X = worldInfo.GetAllGameObjects();
-        String k = ((MenuItem) e.getSource()).getText();
-        Duckie duckie;
-        switch (k) {
-            case "Duckie":
-                duckie = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
-                break;
-            case "Classic":
-               //TODO Classic classic = new Classic(X[0], X[1], X[2]);
-            case "Cool":
-                Cool cool = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
-                break;
-            default:
-                throw new IllegalArgumentException("No such menu choice " + k);
-        }
+      String k = ((MenuItem) e.getSource()).getText();
+        SetTheme(k);
     }
 
     // -------------- Build Scene and start graphics ---------------
@@ -231,6 +222,23 @@ public class GUI extends Application implements IObserver {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    void SetTheme(String k){
+        switch (k) {
+            case "Duckie":
+                assets = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
+                break;
+            case "Classic":
+                assets = new Classic(gameObjects[0],gameObjects[1],gameObjects[2]);
+                break;
+            case "Cool":
+                assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
+                break;
+            default:
+                throw new IllegalArgumentException("No such menu choice " + k);
+        }
+
     }
 }
 
