@@ -1,7 +1,14 @@
 package Graphics;
 
+import java.io.*;
+import java.util.Arrays;
+import java.util.List;
+
 //spara highscore med namn
 public class Highscore {
+    //Writer wr = new FileWriter("Highscore.txt");
+   // Reader rd = new FileReader("Highscore.txt");
+
 
 //TODO spara highscore
 

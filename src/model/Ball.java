@@ -4,11 +4,10 @@ import GameManagment.IWorldInfo;
 public class Ball extends Rigbody implements IGameObject{
     // TODO this is not used here
     private IWorldInfo worldInfo;
-
     private Vector velocity;
-
+    public int points=0;
     public Ball(Vector position, IWorldInfo worldInfo){
-        super(40, 40, 3, position);
+        super(20, 20, 3, position);
         this.worldInfo = worldInfo;
         velocity = new Vector(1,0);
         velocity.y = GetVariation(0.2);
@@ -42,4 +41,5 @@ public class Ball extends Rigbody implements IGameObject{
         return Math.random() / divisor - var;
     }
 
+    public int getPoints(){return points;}
 }
