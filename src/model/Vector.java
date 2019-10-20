@@ -33,15 +33,15 @@ public class Vector{
     //endregion
 
     //region basicVectors
-    public Vector zero() {
+    public static Vector zero() {
         return new Vector(0,0);
     }
 
-    public Vector horizontal () {
+    public static Vector horizontal () {
         return new Vector(1,0);
     }
 
-    public Vector vertical () {
+    public static Vector vertical () {
         return new Vector(0, 1);
     }
     //endregion

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="">
+    <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="cleaned code a little bit, made Rigbody parent class of Ball and Paddle">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager$paddles.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager$paddles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ball.java" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/Controlls/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Vector.java" afterDir="false" />
+=======
+
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,14 +85,7 @@
       <option name="project" value="LOCAL" />
       <updated>1571331694897</updated>
     </task>
-    <task id="LOCAL-00002" summary="fixed velocity issue, maybe?">
-      <created>1571584757414</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1571584757414</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,8 +103,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed most things, actually playable now" />
-    <MESSAGE value="fixed velocity issue, maybe?" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed velocity issue, maybe?" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed most things, actually playable now" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
