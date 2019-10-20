@@ -69,14 +69,10 @@ public class GUI extends Application implements IObserver {
         KeyCode kc = event.getCode();
         switch (kc) {
             case UP:
-                if (players.length > 0) players[0].ChangeDirection(0);
-                break;
             case DOWN:
                 if (players.length > 0) players[0].ChangeDirection(0);
                 break;
             case A:
-                if (players.length > 1) players[1].ChangeDirection(0);
-                break;
             case Q:
                 if (players.length > 1) players[1].ChangeDirection(0);
                 break;
