@@ -32,6 +32,7 @@ public class GUI extends Application implements IObserver {
     private boolean running = false;    // Is game running?
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
     private IWorldInfo worldInfo = (IWorldInfo) gameManager;
+    private boolean isAI = false;
     IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
     // ------- Keyboard handling ----------------------------------
@@ -133,6 +134,7 @@ public class GUI extends Application implements IObserver {
         players = worldInfo.GetPlayers();
         gameObjects = worldInfo.GetAllGameObjects();
 
+        if(isAI) gameManager.SetPlayerToAI(1);
     }
 
     // -------- Event handling (events sent from model to Graphics.GUI) ------------
@@ -154,9 +156,11 @@ public class GUI extends Application implements IObserver {
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if (i.isSelected()) {
            gameManager.SetPlayerToAI(1);
+           isAI = true;
            out.println("AI on");
         } else {
             gameManager.SetAITOPlayer(1);
+            isAI = false;
             out.println("AI off");
         }
     }
