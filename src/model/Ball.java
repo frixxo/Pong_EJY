@@ -50,7 +50,14 @@ public class Ball extends Rigbody implements IGameObject{
     }
 
     private void SetTwist(){
-        velocity.y += GetVariation(1);
-        velocity.x = (velocity.x / Math.abs(velocity.x)) * Math.sqrt(Math.pow(speed, 2)-Math.pow (velocity.y, 2));
+        double variation = GetVariation(1);
+        velocity.y += variation;
+        while (Math.pow(velocity.y, 2) >= Math.pow(speed, 2)){
+            velocity.y -= variation;
+            variation = GetVariation(1);
+            velocity.y += variation;
+            System.out.println(variation);
+        }
+        velocity.x = (velocity.x / Math.abs(velocity.x)) * Math.sqrt(Math.pow(speed, 2)-Math.pow(velocity.y, 2));
     }
 }
