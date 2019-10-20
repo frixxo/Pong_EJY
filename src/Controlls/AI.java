@@ -18,12 +18,14 @@ public class AI implements IObserver, IControll {
     private boolean recentlyCalculatedMovement = false;
     private double moveAt;
 
+    private double homingDistance = 30d;
     private double satisfactionDeadzone = 5d; //How close can the paddle be to the desired position for the ai to be satisfied and stop the movement
 
     public AI(IWorldInfo worldInfo, IControllable puppet) {
         this.worldInfo = worldInfo;
         this.puppet = puppet;
         satisfactionDeadzone = ((Rigbody)puppet).GetSpeed();
+        homingDistance = ((IGameObject)puppet).GetSize().GetY()/2 -1;
         System.out.println("Activated AI");
     }
 
@@ -56,6 +58,7 @@ public class AI implements IObserver, IControll {
     public void Update() {
         Vector ballVelocity = worldInfo.GetBall().GetMovmentVector();
         Vector ballPoisition = worldInfo.GetBall().GetPosition();
+        Vector ballSize = ((Rigbody)worldInfo.GetBall()).GetSize();
         if ((((IGameObject)puppet).GetPosition().GetX() - worldInfo.GetWorldSize().GetX() /2  <  0)
                 == (ballVelocity.GetX() < 0)) //is true if the ball is moving towards the puppet and the movement wasn't recently calculated
         {
@@ -63,19 +66,24 @@ public class AI implements IObserver, IControll {
                 while (true) {
                     Vector collisionPoint;
                     if (ballVelocity.GetY() > 0) //find impact between the balls movement path and the horizontal walls.
-                        collisionPoint = ImpactBetweenGraph(new Vector(0, worldInfo.GetWorldSize().GetY()), ballVelocity.horizontal(), ballPoisition, ballVelocity);
+                        collisionPoint = ImpactBetweenGraph(Vector.zero().VectorSumY(worldInfo.GetWorldSize().GetY() - ballSize.GetY()/2), Vector.horizontal(), ballPoisition, ballVelocity);
                     else if (ballVelocity.GetY() < 0)
-                        collisionPoint = ImpactBetweenGraph(ballVelocity.zero(), ballVelocity.horizontal(), ballPoisition, ballVelocity);
+                        collisionPoint = ImpactBetweenGraph(Vector.zero().VectorSumY(ballSize.GetY()/2), Vector.horizontal(), ballPoisition, ballVelocity);
                     else {
                         moveAt = ((IGameObject) puppet).GetSize().GetY()/2 + ballPoisition.GetY(); //If the ball moves parallel to the walls then move to its y position.
                         break;
                     }
 
-                    if (collisionPoint.GetX() <= 0 || collisionPoint.GetX() >= worldInfo.GetWorldSize().GetX()) // is true if the collision point between the ball and the horizontal walls is outside of the world
-                    {
-                        moveAt = ((IGameObject) puppet).GetSize().GetY()/2 +  ImpactBetweenGraph(((IGameObject) puppet).GetPosition(), ballVelocity.vertical(), ballPoisition, ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
+                    if (collisionPoint.GetX() <= ((IGameObject)puppet).GetPosition().GetX() + ballSize.GetX()/2 && ((IGameObject)puppet).GetPosition().GetX() < worldInfo.GetWorldSize().GetX()/2) // is true if the collision point between the ball and the horizontal walls is outside of the world
+                    { //left paddle
+                        moveAt = ((IGameObject) puppet).GetSize().GetY()/2 + ImpactBetweenGraph(((IGameObject) puppet).GetPosition(), Vector.vertical(), ballPoisition.VectorSumX(-ballSize.GetY()/2), ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
                         break;
-                    } else { //If the collision between the balls path and the horizontal walls is inside of the world then recalculate the path from the impact and with the velocity for after the bounce.
+                    } else if (collisionPoint.GetX() >= ((IGameObject)puppet).GetPosition().GetX() - ballSize.GetX()/2 && ((IGameObject)puppet).GetPosition().GetX() > worldInfo.GetWorldSize().GetX()/2)
+                    { //right paddle
+                        moveAt = ((IGameObject) puppet).GetSize().GetY()/2 + ImpactBetweenGraph(((IGameObject) puppet).GetPosition(), Vector.vertical(), ballPoisition.VectorSumX(ballSize.GetY()/2), ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
+                        break;
+                    }
+                    else { //If the collision between the balls path and the horizontal walls is inside of the world then recalculate the path from the impact and with the velocity for after the bounce.
                         ballPoisition = collisionPoint;
                         double newX = ballVelocity.GetX();
                         double newY = -ballVelocity.GetY();
@@ -85,11 +93,24 @@ public class AI implements IObserver, IControll {
                 }
                 direction = (moveAt - ((IGameObject) puppet).GetPosition().GetY()) / Math.abs(moveAt - ((IGameObject) puppet).GetPosition().GetY()); //set the direction to 1 or -1. Depending of where the desired position is in comparison to the puppets position.
                 Action();
-                System.out.println("Moving to: " + moveAt + " with direction: " + direction);
+                //System.out.println("Moving to: " + moveAt + " with direction: " + direction);
                 recentlyCalculatedMovement = true; //we don't need to recalculate the exact same thing next frame.
-            }} else if (recentlyCalculatedMovement) recentlyCalculatedMovement = false; // if the ball is moving away from us then reset the recentCalculatedMovement value.
+            } else if (Math.abs(ballPoisition.GetX() - ((IGameObject)puppet).GetPosition().GetX()) < homingDistance)
+            { //when the ball is really close to the paddle a small homing feature is activated to reduce losses from round off error
+               moveAt = ((IGameObject) puppet).GetSize().GetY()/2 + ballPoisition.GetY();
+                direction = (moveAt - ((IGameObject) puppet).GetPosition().GetY()) / Math.abs(moveAt - ((IGameObject) puppet).GetPosition().GetY());
+                Action();
+                recentlyCalculatedMovement = true;
+            }
 
-        if (Math.abs(((IGameObject) puppet).GetPosition().GetY() - moveAt) < satisfactionDeadzone) //The movement stops if we are in the desired position
+        } else if (recentlyCalculatedMovement) {
+            recentlyCalculatedMovement = false; // if the ball is moving away from us then reset the recentCalculatedMovement value.
+            moveAt = worldInfo.GetWorldSize().GetY()/2 + ((IGameObject) puppet).GetSize().GetY()/2; //reset position to middle
+            direction = (moveAt - ((IGameObject) puppet).GetPosition().GetY()) / Math.abs(moveAt - ((IGameObject) puppet).GetPosition().GetY());
+            Action();
+        }
+
+        if (Math.abs(((IGameObject) puppet).GetPosition().GetY() - moveAt) < satisfactionDeadzone + 0.3d) //The movement stops if we are in the desired position
         {
             direction = 0;
             Action();
@@ -115,7 +136,7 @@ public class AI implements IObserver, IControll {
         if ((int)x != (int)(graph2Point.GetX() + t*graph2Vector.GetX()) || (int)y != (int)(graph2Point.GetY() + t*graph2Vector.GetY())) //This should always return true!
             {
             //throw new RuntimeException("Calculations wrong");
-            System.out.println("Calculations wrong x: " + (int)x + " != " + (int)(graph2Point.GetX() + t*graph2Vector.GetX()) + " || y: " + (int)y + " != " + (int)(graph2Point.GetY() + t*graph2Vector.GetY()));
+            //System.out.println("Calculations wrong x: " + (int)x + " != " + (int)(graph2Point.GetX() + t*graph2Vector.GetX()) + " || y: " + (int)y + " != " + (int)(graph2Point.GetY() + t*graph2Vector.GetY()));
         }
 
         return new Vector(x, y);

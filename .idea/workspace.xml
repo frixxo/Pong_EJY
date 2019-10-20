@@ -1,57 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="cleaned code a little bit, made Rigbody parent class of Ball and Paddle">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/img/classicBg.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/img/classicBg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Assets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Highscore.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Highscore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/InitializeWorld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/PongMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/PongMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Render.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/Render.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/img/classicBg.png" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/img/classicBg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Collider.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Collider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/IGameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/IGameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/ModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/Highscore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Highscore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/InitializeWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/PongMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/PongMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Render.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Collider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IGameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Paddle.java" afterDir="false" />
-    </list>
+    <list default="true" id="5dccb1a1-15c5-4174-adb4-db73e28ff580" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1SFiYKOYkwjoKVz33MENMQhVd9A" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PATH_TO_FX$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -69,7 +30,7 @@
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Graphics.GUI" />
       <module name="Pong_EJY" />
-      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules=javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Graphics.*" />
@@ -91,20 +52,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="" />
-      <created>1571165633617</created>
+      <changelist id="5dccb1a1-15c5-4174-adb4-db73e28ff580" name="Default Changelist" comment="" />
+      <created>1571585408179</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571165633617</updated>
+      <updated>1571585408179</updated>
     </task>
-    <task id="LOCAL-00001" summary="fixed most things, actually playable now">
-      <created>1571331694897</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1571331694897</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,32 +65,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed most things, actually playable now" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed most things, actually playable now" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Graphics/GUI.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="ball.position" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -32,11 +32,11 @@ public class GM implements IObservable, IWorldInfo{
 
         gameObjects = new IGameObject[]{ //All GameObjects in the game
                 new Ball(StartPositionBall, (IWorldInfo)this),
-                new Paddle(new Vector(worldWidth/2-DisanceFromMidPaddle, worldHeight/2), (IWorldInfo) this, Player1), //TODO change startposition
-                new Paddle(new Vector(worldWidth/2+DisanceFromMidPaddle, worldHeight/2), (IWorldInfo)this, Player2)
+                new Paddle(new Vector(worldWidth/2-DisanceFromMidPaddle, worldHeight/2), (IWorldInfo) this, Player2),
+                new Paddle(new Vector(worldWidth/2+DisanceFromMidPaddle, worldHeight/2), (IWorldInfo)this, Player1)
         };
-        Player1.Set((Paddle)gameObjects[1]);
-        Player2.Set((Paddle)gameObjects[2]);
+        Player1.Set((Paddle)gameObjects[2]);
+        Player2.Set((Paddle)gameObjects[1]);
 
         ModelManager modelManager = new ModelManager((Ball) gameObjects[0], (Paddle) gameObjects[1], (Paddle) gameObjects[2], (IWorldInfo)this);
 
@@ -62,9 +62,15 @@ public class GM implements IObservable, IWorldInfo{
     public void SetPlayerToAI (int playerIndex)
     {
         IControll swapPlayer = controlls[playerIndex];
+        try {
+            InputSystem tst = (InputSystem) swapPlayer;
+        } catch (ClassCastException e)
+        {
+            return;
+        }
         IControllable paddle = swapPlayer.GetPuppet();
         IControll ai = new AI((IWorldInfo) this, paddle);
-        ((Paddle)paddle).GetControll().DeleteMe();
+        swapPlayer.DeleteMe();
         ((Paddle)paddle).SetControll((IControll)ai);
         controlls[playerIndex] = ai;
         HashSet<IObserver> set = new HashSet<IObserver>();
@@ -77,15 +83,23 @@ public class GM implements IObservable, IWorldInfo{
     public void SetAITOPlayer(int aiIndex)
     {
         IControll swapPlayer = controlls[aiIndex];
+        try {
+            AI tst = (AI)swapPlayer;
+        } catch (ClassCastException e)
+        {
+            return;
+        }
         IControllable paddle = swapPlayer.GetPuppet();
         IControll is = new InputSystem();
         is.Set(paddle);
-        ((Paddle)paddle).GetControll().DeleteMe();
+        swapPlayer.DeleteMe();
         ((Paddle)paddle).SetControll((IControll)is);
         controlls[aiIndex] = is;
         HashSet<IObserver> set = new HashSet<IObserver>();
         set.addAll(Arrays.asList(observers));
-        set.remove((IObserver) swapPlayer);
+        if (set.contains(swapPlayer))
+            set.remove(swapPlayer);
+        observers = new IObserver[observers.length-1];
         observers = set.toArray(observers);
         gui.SetInputSystem(GetPlayers());
     }
