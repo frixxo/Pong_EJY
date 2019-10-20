@@ -11,7 +11,7 @@ public class Paddle extends Rigbody implements IGameObject, IControllable {
     private double direction = 0;
 
     public Paddle(Vector position, IWorldInfo worldInfo, IControll controll){
-        super(5,50,5, position);
+        super(10,50,5, position);
         this.worldInfo = worldInfo;
         this.controll = controll;
     }

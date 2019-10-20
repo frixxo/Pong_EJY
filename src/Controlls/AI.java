@@ -25,7 +25,7 @@ public class AI implements IObserver, IControll {
         this.worldInfo = worldInfo;
         this.puppet = puppet;
         satisfactionDeadzone = ((Rigbody)puppet).GetSpeed();
-        homingDistance = ((IGameObject)puppet).GetSize().GetY()/2;
+        homingDistance = ((IGameObject)puppet).GetSize().GetY()/2 -1;
         System.out.println("Activated AI");
     }
 

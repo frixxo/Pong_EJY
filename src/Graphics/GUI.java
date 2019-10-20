@@ -152,7 +152,6 @@ public class GUI extends Application implements IObserver {
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         if (i.isSelected()) {
            gameManager.SetPlayerToAI(1);
-           gameManager.SetPlayerToAI(0);
            isAI = true;
            out.println("AI on");
         } else {
