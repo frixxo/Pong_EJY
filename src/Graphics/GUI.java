@@ -32,7 +32,8 @@ public class GUI extends Application implements IObserver {
     private boolean running = false;    // Is game running?
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
     private IWorldInfo worldInfo = (IWorldInfo) gameManager;
-    private boolean isAI = false;
+    private boolean isAI1 = false;
+    public boolean isAI2 = false;
     IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
     // ------- Keyboard handling ----------------------------------
@@ -131,7 +132,11 @@ public class GUI extends Application implements IObserver {
         players = worldInfo.GetPlayers();
         gameObjects = worldInfo.GetAllGameObjects();
 
-        if(isAI) gameManager.SetPlayerToAI(1);
+        if(isAI1) gameManager.SetPlayerToAI(1);
+        if (isAI2) {
+            gameManager.SetPlayerToAI(0);
+            gameManager.SetPlayerToAI(1);
+        }
     }
 
     // -------- Event handling (events sent from model to Graphics.GUI) ------------
@@ -150,25 +155,30 @@ public class GUI extends Application implements IObserver {
 
     // ------- Optional ------------
     private void handleOptions(ActionEvent e) {
-        isAI=false;
         CheckMenuItem i = (CheckMenuItem) e.getSource();
         String o = ((MenuItem) e.getSource()).getText();
         if (i.isSelected()) {
-            if(o.equals("Computer player right")){
-                gameManager.SetPlayerToAI(0);
+            if(o.equals("Set 1x AI")){
+                isAI1 = true;
+                gameManager.SetPlayerToAI(1);
                 out.println("AI on");
             }
-            if(o.equals("Computer player left")){
+            if(o.equals("Set 2x AI")){
+                isAI2 = true;
+                gameManager.SetPlayerToAI(0);
                 gameManager.SetPlayerToAI(1);
                 out.println("AI on");
             }
 
         } else {
-            if(o.equals("Computer player right")){
+            if(o.equals("Set 1x AI")){
+                isAI1 = false;
                 gameManager.SetAITOPlayer(0);
                 out.println("AI off");
             }
-            if(o.equals("Computer player right")){
+            if(o.equals("Set 2x AI")){
+                isAI2 = false;
+                gameManager.SetAITOPlayer(0);
                 gameManager.SetAITOPlayer(1);
                 out.println("AI off");
             }

@@ -41,8 +41,8 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(true);
         getItemByText(menuThemes, "Duckie").setDisable(true);
         getItemByText(menuThemes, "Classic").setDisable(true);
-        getItemByText(menuOptions, "Computer player right").setDisable(true);
-        getItemByText(menuOptions,"Computer player left").setDisable(true);
+        getItemByText(menuOptions, "Set 1x AI").setDisable(true);
+        getItemByText(menuOptions,"Set 2x AI").setDisable(true);
     }
 
     public void fixMenusKillGame() {
@@ -51,8 +51,8 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(false);
         getItemByText(menuThemes, "Duckie").setDisable(false);
         getItemByText(menuThemes, "Classic").setDisable(false);
-        getItemByText(menuOptions, "Computer player right").setDisable(false);
-        getItemByText(menuOptions,"Computer player left").setDisable(false);
+        getItemByText(menuOptions, "Set 1x AI").setDisable(false);
+        getItemByText(menuOptions,"Set 2x AI").setDisable(false);
     }
 
     // ------------  Helpers -----------------------------
@@ -93,9 +93,9 @@ public class PongMenu extends MenuBar {
 
     private Menu createMenuOptions() {
         Menu menuThemes = new Menu("Options");
-        CheckMenuItem air = new CheckMenuItem("Computer player right");
+        CheckMenuItem air = new CheckMenuItem("Set 1x AI");
         air.setSelected(false);
-        CheckMenuItem ail = new CheckMenuItem("Computer player left");
+        CheckMenuItem ail = new CheckMenuItem("Set 2x AI");
         ail.setSelected(false);
         menuThemes.getItems().addAll(air,ail);
         return menuThemes;
