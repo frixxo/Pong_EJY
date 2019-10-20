@@ -57,7 +57,7 @@ public class ModelManager implements IObserver {
                         break;
                 }
 
-                System.out.println("["+score[0]+", "+score[1]+"]");
+                System.out.println("["+score[0]+", "+score[1]+"] ball speed = " + ball.GetSpeed());
                 reset();
             }
         }

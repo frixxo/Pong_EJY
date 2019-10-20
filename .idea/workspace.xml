@@ -4,11 +4,11 @@
     <list default="true" id="74db86cf-f5a2-4e5a-94fc-c492c707ccf7" name="Default Changelist" comment="cleaned code a little bit, made Rigbody parent class of Ball and Paddle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controlls/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameManagment/GM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameManagment/GM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Vector.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

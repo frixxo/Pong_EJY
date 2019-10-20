@@ -12,6 +12,26 @@ public class Vector{
     public double GetX(){return x;}
     public double GetY(){return y;}
 
+    //region Sums
+    public Vector VectorSum(Vector other)
+    {
+        Vector rt = new Vector(this.GetX() + other.GetX(),this.GetY() + other.GetY());
+        return rt;
+    }
+
+    public Vector VectorSumY(double y)
+    {
+        Vector rt = new Vector(this.GetX(),this.GetY() + y);
+        return rt;
+    }
+
+    public Vector VectorSumX(double x)
+    {
+        Vector rt = new Vector(this.GetX() + x,this.GetY());
+        return rt;
+    }
+    //endregion
+
     //region basicVectors
     public Vector zero() {
         return new Vector(0,0);
