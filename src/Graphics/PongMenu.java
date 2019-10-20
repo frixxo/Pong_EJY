@@ -42,6 +42,7 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Duckie").setDisable(true);
         getItemByText(menuThemes, "Classic").setDisable(true);
         getItemByText(menuOptions, "Computer player").setDisable(true);
+        getItemByText(menuOptions,"computer player left").setDisable(true);
     }
 
     public void fixMenusKillGame() {
@@ -50,7 +51,8 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(false);
         getItemByText(menuThemes, "Duckie").setDisable(false);
         getItemByText(menuThemes, "Classic").setDisable(false);
-        getItemByText(menuOptions, "Computer player").setDisable(false);
+        getItemByText(menuOptions, "Computer player right").setDisable(false);
+        getItemByText(menuOptions,"Computer player left").setDisable(false);
     }
 
     // ------------  Helpers -----------------------------
@@ -91,9 +93,11 @@ public class PongMenu extends MenuBar {
 
     private Menu createMenuOptions() {
         Menu menuThemes = new Menu("Options");
-        CheckMenuItem ai = new CheckMenuItem("Computer player");
-        ai.setSelected(false);
-        menuThemes.getItems().addAll(ai);
+        CheckMenuItem air = new CheckMenuItem("Computer player right");
+        air.setSelected(false);
+        CheckMenuItem ail = new CheckMenuItem("Computer player left");
+        ail.setSelected(false);
+        menuThemes.getItems().addAll(air,ail);
         return menuThemes;
     }
 

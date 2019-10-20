@@ -83,5 +83,6 @@ public abstract class Assets {
     public Image GetBackground() {
         return background;
     }
+
     public String getTheme(){return "null";}
 }

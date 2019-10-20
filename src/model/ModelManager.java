@@ -87,8 +87,8 @@ public class ModelManager implements IObserver {
     }
 
     private paddles checkVictory() {
-        if (ball.GetPosition().x <= 0){ return paddles.LEFT; }
-        else if (ball.GetPosition().x + ball.GetSize().x >= worldInfo.GetWorldSize().x){ return paddles.RIGHT; }
+        if (ball.GetPosition().x <= 0){ left.points++; ball.points=0; return paddles.LEFT; }
+        else if (ball.GetPosition().x + ball.GetSize().x >= worldInfo.GetWorldSize().x){ right.points++; ball.points=0; return paddles.RIGHT; }
         return paddles.NONE;
     }
 

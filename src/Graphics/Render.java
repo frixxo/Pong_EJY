@@ -13,9 +13,19 @@ public class Render{
     void game(IWorldInfo worldInfo,GraphicsContext fg,GraphicsContext bg,Assets assets) {
         IGameObject[] gameobjects= worldInfo.GetAllGameObjects();
         fg.clearRect(0, 0, GUI.GAME_WIDTH, GUI.GAME_HEIGHT);    // Clear everything
-        Background(bg,assets);
-        fg.setFont(Font.font(18));
-        //Todo  points
+
+
+        //Draws points
+        fg.setFill(Color.WHITE);
+        fg.setFont(Font.font(24));
+        fg.fillText(gameobjects[2].getPoints() +"",230,50);//poäng vänster
+        fg.fillText(gameobjects[1].getPoints() +"",350,50);//poäng höger
+        fg.fillText(gameobjects[0].getPoints()+"",290,50);//antal studs
+
+        fg.setFont(Font.font(12));
+        fg.fillText("bounces:",270,20);
+
+        //Draws objects
         for (int i=0; i<gameobjects.length; i++){
             if (renderDebug) {
                 fg.strokeRect(gameobjects[i].GetPosition().GetX(), gameobjects[i].GetPosition().GetY(),

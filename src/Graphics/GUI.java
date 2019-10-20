@@ -112,11 +112,12 @@ public class GUI extends Application implements IObserver {
         gameObjects = worldInfo.GetAllGameObjects();
         assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);*/
 
+        SetTheme(assets.getTheme()); //sätter temat igen
 
         // Start game
         timer.start();
         running = true;
-        SetTheme(assets.getTheme());
+
     }
 
     private void killGame() {
@@ -165,6 +166,23 @@ public class GUI extends Application implements IObserver {
       String k = ((MenuItem) e.getSource()).getText();
         SetTheme(k);
     }
+    void SetTheme(String k){
+        switch (k) {
+            case "Duckie":
+                assets = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
+                break;
+            case "Classic":
+                assets = new Classic(gameObjects[0],gameObjects[1],gameObjects[2]);
+                break;
+            case "Cool":
+                assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
+                break;
+            default:
+                throw new IllegalArgumentException("No such menu choice " + k);
+        }
+
+    }
+
 
     // -------------- Build Scene and start graphics ---------------
 
@@ -224,21 +242,6 @@ public class GUI extends Application implements IObserver {
         launch(args);
     }
 
-    void SetTheme(String k){
-        switch (k) {
-            case "Duckie":
-                assets = new Duckie(gameObjects[0],gameObjects[1],gameObjects[2]);
-                break;
-            case "Classic":
-                assets = new Classic(gameObjects[0],gameObjects[1],gameObjects[2]);
-                break;
-            case "Cool":
-                assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
-                break;
-            default:
-                throw new IllegalArgumentException("No such menu choice " + k);
-        }
 
-    }
 }
 
