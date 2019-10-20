@@ -150,15 +150,29 @@ public class GUI extends Application implements IObserver {
 
     // ------- Optional ------------
     private void handleOptions(ActionEvent e) {
+        isAI=false;
         CheckMenuItem i = (CheckMenuItem) e.getSource();
+        String o = ((MenuItem) e.getSource()).getText();
         if (i.isSelected()) {
-           gameManager.SetPlayerToAI(1);
-           isAI = true;
-           out.println("AI on");
+            if(o.equals("Computer player right")){
+                gameManager.SetPlayerToAI(0);
+                out.println("AI on");
+            }
+            if(o.equals("Computer player left")){
+                gameManager.SetPlayerToAI(1);
+                out.println("AI on");
+            }
+
         } else {
-            gameManager.SetAITOPlayer(1);
-            isAI = false;
-            out.println("AI off");
+            if(o.equals("Computer player right")){
+                gameManager.SetAITOPlayer(0);
+                out.println("AI off");
+            }
+            if(o.equals("Computer player right")){
+                gameManager.SetAITOPlayer(1);
+                out.println("AI off");
+            }
+
         }
     }
 

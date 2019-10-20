@@ -41,8 +41,8 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(true);
         getItemByText(menuThemes, "Duckie").setDisable(true);
         getItemByText(menuThemes, "Classic").setDisable(true);
-        getItemByText(menuOptions, "Computer player").setDisable(true);
-        getItemByText(menuOptions,"computer player left").setDisable(true);
+        getItemByText(menuOptions, "Computer player right").setDisable(true);
+        getItemByText(menuOptions,"Computer player left").setDisable(true);
     }
 
     public void fixMenusKillGame() {
