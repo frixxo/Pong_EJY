@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dccb1a1-15c5-4174-adb4-db73e28ff580" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Controlls/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Controlls/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/Graphics/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" beforeDir="false" afterPath="$PROJECT_DIR$/production/production/Pong_EJY/model/Paddle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controlls/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlls/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graphics/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Paddle.java" afterDir="false" />
-    </list>
+    <list default="true" id="5dccb1a1-15c5-4174-adb4-db73e28ff580" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
