@@ -69,7 +69,7 @@ public class AI implements IObserver, IControll {
                 Action();
                 //System.out.println("Moving to: " + moveAt + " with direction: " + direction);
                 recentlyCalculatedMovement = true; //we don't need to recalculate the exact same thing next frame.
-            } else if (Math.abs(ballPosition.GetX() - ((IGameObject)puppet).GetPosition().GetX()) < homingDistance)
+            } else if (Math.abs(ballPosition.GetX() - ((IGameObject)puppet).GetPosition().GetX()) < ballSize.GetX()/2+homingDistance)
             { //when the ball is really close to the paddle a small homing feature is activated to reduce losses from round off error
                 moveAt = ((IGameObject) puppet).GetSize().GetY()/2 + ballPosition.GetY();
                 direction = (moveAt - ((IGameObject) puppet).GetPosition().GetY()) / Math.abs(moveAt - ((IGameObject) puppet).GetPosition().GetY());
