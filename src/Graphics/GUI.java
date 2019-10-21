@@ -4,13 +4,15 @@ import Controlls.InputSystem;
 import GameManagment.GM;
 import GameManagment.IObserver;
 import GameManagment.IWorldInfo;
+import Graphics.Themes.Classic;
+import Graphics.Themes.Cool;
+import Graphics.Themes.Duckie;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -18,11 +20,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.IGameObject;
-
-import javax.swing.*;
-import java.awt.*;
-
-import static java.lang.System.out;
 
 public class GUI extends Application implements IObserver {
 

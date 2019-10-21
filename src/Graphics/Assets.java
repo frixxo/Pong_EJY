@@ -32,7 +32,7 @@ public abstract class Assets {
     // ------------ Handling Colors and Images ------------------------
     public final Color colorFgText = Color.WHITE;
     final Image menupic = getImage("pong.png");
-    static Image background;
+    public static Image background;
 
 
     // -------------- Audio handling -----------------------------
