@@ -42,6 +42,7 @@ public class ModelManager implements IObserver {
     public void Update(){
         if ((ball.GetMovmentVector().x < 0 && Collider.isCollision(ball, left)) ||
                 (ball.GetMovmentVector().x > 0 && Collider.isCollision(ball, right))) {
+            ball.points++;
             ball.BounceX();
             ball.boost();
         } else { // if no collision with the paddles then possibly is winning
