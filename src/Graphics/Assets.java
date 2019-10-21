@@ -35,14 +35,9 @@ public abstract class Assets {
     static Image background;
 
 
-    {
-        // bind common, for all themes, objects/classes  (none right now)
-    }
-
-
     // -------------- Audio handling -----------------------------
 
-    //TODO Ljud     public AudioClip hitsound = getSound("ballhitpaddle.wav");
+    public AudioClip hitsound = getSound("ballhitpaddle.wav");
 
     // -------------- Methods binding objects/classes to assets -----------------
 

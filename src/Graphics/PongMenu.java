@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 
+import javax.swing.*;
 import java.util.Set;
 
 /*
@@ -41,6 +42,7 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(true);
         getItemByText(menuThemes, "Duckie").setDisable(true);
         getItemByText(menuThemes, "Classic").setDisable(true);
+        getItemByText(menuOptions,"Set 0x AI").setDisable(true);
         getItemByText(menuOptions, "Set 1x AI").setDisable(true);
         getItemByText(menuOptions,"Set 2x AI").setDisable(true);
     }
@@ -51,6 +53,7 @@ public class PongMenu extends MenuBar {
         getItemByText(menuThemes, "Cool").setDisable(false);
         getItemByText(menuThemes, "Duckie").setDisable(false);
         getItemByText(menuThemes, "Classic").setDisable(false);
+        getItemByText(menuOptions,"Set 0x AI").setDisable(false);
         getItemByText(menuOptions, "Set 1x AI").setDisable(false);
         getItemByText(menuOptions,"Set 2x AI").setDisable(false);
     }
@@ -93,11 +96,19 @@ public class PongMenu extends MenuBar {
 
     private Menu createMenuOptions() {
         Menu menuThemes = new Menu("Options");
-        CheckMenuItem air = new CheckMenuItem("Set 1x AI");
-        air.setSelected(false);
-        CheckMenuItem ail = new CheckMenuItem("Set 2x AI");
-        ail.setSelected(false);
-        menuThemes.getItems().addAll(air,ail);
+        ToggleGroup toggleGroup1 = new ToggleGroup();
+        RadioMenuItem noai = new RadioMenuItem("Set 0x AI");
+        noai.setSelected(true);
+        RadioMenuItem ai1 = new RadioMenuItem("Set 1x AI");
+        ai1.setSelected(false);
+        RadioMenuItem ai2 = new RadioMenuItem("Set 2x AI");
+        ai2.setSelected(false);
+
+        noai.setToggleGroup(toggleGroup1);
+        ai1.setToggleGroup(toggleGroup1);
+        ai2.setToggleGroup(toggleGroup1);
+
+        menuThemes.getItems().addAll(noai,ai1,ai2);
         return menuThemes;
     }
 

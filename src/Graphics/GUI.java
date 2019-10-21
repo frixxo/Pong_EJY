@@ -33,7 +33,7 @@ public class GUI extends Application implements IObserver {
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
     private IWorldInfo worldInfo = (IWorldInfo) gameManager;
     private boolean isAI1 = false;
-    public boolean isAI2 = false;
+    private boolean isAI2 = false;
     IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
     // ------- Keyboard handling ----------------------------------
@@ -106,13 +106,6 @@ public class GUI extends Application implements IObserver {
         menu.fixMenusNewGame();
         render.Background(bg,assets);
 
-        // Build the model
-        /*gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
-        worldInfo = (IWorldInfo)gameManager;
-        players = worldInfo.GetPlayers();
-        gameObjects = worldInfo.GetAllGameObjects();
-        assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);*/
-
         SetTheme(assets.getTheme()); //sätter temat igen
 
         // Start game
@@ -132,58 +125,35 @@ public class GUI extends Application implements IObserver {
         players = worldInfo.GetPlayers();
         gameObjects = worldInfo.GetAllGameObjects();
 
-        if(isAI1) gameManager.SetPlayerToAI(1);
-        if (isAI2) {
-            gameManager.SetPlayerToAI(0);
-            gameManager.SetPlayerToAI(1);
-        }
     }
-
-    // -------- Event handling (events sent from model to Graphics.GUI) ------------
-
-
-   /* @Override
-    public void onModelEvent(ModelEvent evt) {
-        if (evt.type == ModelEvent.Type.NEW_BALL) {
-            // TODO Optional
-        } else if (evt.type == ModelEvent.Type.BALL_HIT_PADDLE) {
-            assets.hitsound.play();
-        } else if (evt.type == ModelEvent.Type.BALL_HIT_WALL_CEILING) {
-            // TODO Optional
-        }
-    }*/
 
     // ------- Optional ------------
     private void handleOptions(ActionEvent e) {
-        CheckMenuItem i = (CheckMenuItem) e.getSource();
+
         String o = ((MenuItem) e.getSource()).getText();
-        if (i.isSelected()) {
-            if(o.equals("Set 1x AI")){
+        isAI2=false;
+        isAI1=false;
+
+        switch (o){
+            case "Set 1x AI":
                 isAI1 = true;
+                gameManager.SetAITOPlayer(0);
                 gameManager.SetPlayerToAI(1);
-                out.println("AI on");
-            }
-            if(o.equals("Set 2x AI")){
+                break;
+
+            case "Set 2x AI":
                 isAI2 = true;
                 gameManager.SetPlayerToAI(0);
                 gameManager.SetPlayerToAI(1);
-                out.println("AI on");
-            }
+                break;
 
-        } else {
-            if(o.equals("Set 1x AI")){
-                isAI1 = false;
-                gameManager.SetAITOPlayer(0);
-                out.println("AI off");
-            }
-            if(o.equals("Set 2x AI")){
-                isAI2 = false;
+            case "Set 0x AI":
                 gameManager.SetAITOPlayer(0);
                 gameManager.SetAITOPlayer(1);
-                out.println("AI off");
-            }
-
+                gameManager.SwapPlayers();
+                break;
         }
+
     }
 
     private void handleTheme(ActionEvent e) {

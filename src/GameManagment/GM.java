@@ -103,6 +103,14 @@ public class GM implements IObservable, IWorldInfo{
         observers = set.toArray(observers);
         gui.SetInputSystem(GetPlayers());
     }
+
+    public void SwapPlayers(){
+        InputSystem[] players= GetPlayers();
+        InputSystem temp = players[0];
+        players[0]=players[1];
+        players[1]=temp;
+        gui.SetInputSystem(players);
+    }
     //endregion
 
     //region IObservable
