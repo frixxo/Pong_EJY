@@ -30,9 +30,9 @@ public class Paddle extends Rigbody implements IGameObject, IControllable {
     }
 
     public void move(double dir) {
-        if (dir > 0 && position.y <= worldInfo.GetWorldSize().y) {
+        if (dir > 0 && position.y <= worldInfo.GetWorldSize().y-height/2) {
             dir = 1;
-        } else if (dir < 0 && position.y - height >= 0) {
+        } else if (dir < 0 && position.y - height/2 >= 0) {
             dir = -1;
         } else{
             dir = 0;

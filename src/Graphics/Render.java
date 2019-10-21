@@ -32,8 +32,8 @@ public class Render{
                         gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
 
             } else {
-                fg.drawImage(assets.get(gameobjects[i]), (gameobjects[i].GetPosition().GetX()),
-                        (GUI.GAME_HEIGHT-gameobjects[i].GetPosition().GetY()), gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
+                fg.drawImage(assets.get(gameobjects[i]), (gameobjects[i].GetPosition().GetX())-(gameobjects[i].GetSize().GetX()/2),
+                        (GUI.GAME_HEIGHT-gameobjects[i].GetPosition().GetY()-(gameobjects[i].GetSize().GetY()/2)), gameobjects[i].GetSize().GetX(), gameobjects[i].GetSize().GetY());
             }
         }
     }

@@ -7,7 +7,7 @@ public class Ball extends Rigbody implements IGameObject{
     private Vector velocity;
     public int points=0;
     public Ball(Vector position, IWorldInfo worldInfo){
-        super(20, 20, 3, position);
+        super(20, 20, 0.5, position);
         this.worldInfo = worldInfo;
         velocity = new Vector(3,0);
         SetTwist();
