@@ -53,12 +53,10 @@ public class ModelManager implements IObserver {
                 switch (winner) {
                     case LEFT:
                         score[1]++;
-                        score[2]=0;
                         worldInfo.SetScore(score);
                         break;
                     case RIGHT:
                         score[0]++;
-                        score[2]=0;
                         worldInfo.SetScore(score);
                         break;
                 }
@@ -85,6 +83,7 @@ public class ModelManager implements IObserver {
     }
 
     public void reset() {
+        score[2]=0;
         ball.BounceX();
         ball.SetSpeed(ballSpeed);
         ball.SetPosition(ballPos);

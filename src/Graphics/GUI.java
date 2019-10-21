@@ -29,8 +29,7 @@ public class GUI extends Application implements IObserver {
     private boolean running = false;    // Is game running?
     private GM gameManager = new GM(this, GAME_WIDTH, GAME_HEIGHT);
     private IWorldInfo worldInfo = (IWorldInfo) gameManager;
-    private boolean isAI1 = false;
-    private boolean isAI2 = false;
+    private String currentAIstatus = "Set 0x AI";
     IGameObject[] gameObjects=worldInfo.GetAllGameObjects();
     Assets assets = new Cool(gameObjects[0],gameObjects[1],gameObjects[2]);
     // ------- Keyboard handling ----------------------------------
@@ -104,7 +103,7 @@ public class GUI extends Application implements IObserver {
         render.Background(bg,assets);
 
         SetTheme(assets.getTheme()); //sätter temat igen
-
+        SetAI(currentAIstatus);
         // Start game
         timer.start();
         running = true;
@@ -126,29 +125,34 @@ public class GUI extends Application implements IObserver {
 
     // ------- Optional ------------
     private void handleOptions(ActionEvent e) {
-
         String o = ((MenuItem) e.getSource()).getText();
-        isAI2=false;
-        isAI1=false;
+        SetAI(o);
+    }
 
-        switch (o){
-            case "Set 1x AI":
-                isAI1 = true;
-                gameManager.SetAITOPlayer(0);
-                gameManager.SetPlayerToAI(1);
-                break;
+    private void SetAI(String o){
+        {
+            switch (o){
+                case "Set 0x AI":
+                    gameManager.SetAITOPlayer(0);
+                    gameManager.SetAITOPlayer(1);
+                    currentAIstatus=o;
+                    break;
 
-            case "Set 2x AI":
-                isAI2 = true;
-                gameManager.SetPlayerToAI(0);
-                gameManager.SetPlayerToAI(1);
-                break;
+                case "Set 1x AI":
+                    gameManager.SetAITOPlayer(0);
+                    gameManager.SetPlayerToAI(1);
+                    currentAIstatus=o;
+                    break;
 
-            case "Set 0x AI":
-                gameManager.SetAITOPlayer(0);
-                gameManager.SetAITOPlayer(1);
-                gameManager.SwapPlayers();
-                break;
+                case "Set 2x AI":
+                    gameManager.SetPlayerToAI(0);
+                    gameManager.SetPlayerToAI(1);
+                    currentAIstatus=o;
+                    break;
+
+
+            }
+
         }
 
     }

@@ -3,8 +3,10 @@ import Controlls.AI;
 import Controlls.IControll;
 import Controlls.InputSystem;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import Graphics.GUI;
 import model.*;
@@ -104,13 +106,6 @@ public class GM implements IObservable, IWorldInfo{
         gui.SetInputSystem(GetPlayers());
     }
 
-    public void SwapPlayers(){
-        InputSystem[] players= GetPlayers();
-        InputSystem temp = players[0];
-        players[0]=players[1];
-        players[1]=temp;
-        gui.SetInputSystem(players);
-    }
     //endregion
 
     //region IObservable
@@ -137,7 +132,7 @@ public class GM implements IObservable, IWorldInfo{
     }
 
     public InputSystem[] GetPlayers(){
-        HashSet<InputSystem> set = new HashSet<InputSystem>();
+        List<InputSystem> set = new ArrayList<InputSystem>();
         for (int i = 0; i < controlls.length; i++)
         {
             try{
