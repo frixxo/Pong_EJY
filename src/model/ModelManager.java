@@ -66,7 +66,7 @@ public class ModelManager implements IObserver {
                 System.out.println("["+score[0]+", "+score[1]+"]");
                 Vector bVec= ball.GetMovmentVector();
                 System.out.println("Velocity.x: "+bVec.x+"; Velocity.y: "+bVec.y);
-                System.out.println("Bounces: "+ball.points+"; Actual speed: "+ball.GetSpeed());
+                System.out.println("Bounces: "+score[2]+"; Actual speed: "+ball.GetSpeed());
                 reset();
             }
         }
