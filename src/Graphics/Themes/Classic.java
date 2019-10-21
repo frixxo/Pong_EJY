@@ -1,6 +1,7 @@
-package Graphics;
+package Graphics.Themes;
 
 import GameManagment.IWorldInfo;
+import Graphics.Assets;
 import model.IGameObject;
 
 public class Classic extends Assets {

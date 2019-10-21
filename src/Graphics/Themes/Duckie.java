@@ -1,8 +1,9 @@
-package Graphics;
+package Graphics.Themes;
 
+import Graphics.Assets;
 import model.IGameObject;
 
-public class Duckie extends Assets{
+public class Duckie extends Assets {
 
     public Duckie(IGameObject ball, IGameObject rightpaddle, IGameObject leftpaddle) {
         Assets.background = getImage("duckieBg.jpg");
