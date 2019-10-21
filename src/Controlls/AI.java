@@ -18,14 +18,13 @@ public class AI implements IObserver, IControll {
     private boolean recentlyCalculatedMovement = false;
     private double moveAt;
 
-    private double homingDistance = 30d;
+    private final double homingDistance = 30d;
     private double satisfactionDeadzone = 5d; //How close can the paddle be to the desired position for the ai to be satisfied and stop the movement
 
     public AI(IWorldInfo worldInfo, IControllable puppet) {
         this.worldInfo = worldInfo;
         this.puppet = puppet;
         satisfactionDeadzone = ((Rigbody)puppet).GetSpeed();
-        homingDistance = ((IGameObject)puppet).GetSize().GetY()/2 -1;
         System.out.println("Activated AI");
     }
 
@@ -71,7 +70,7 @@ public class AI implements IObserver, IControll {
                 recentlyCalculatedMovement = true; //we don't need to recalculate the exact same thing next frame.
             } else if (Math.abs(ballPosition.GetX() - ((IGameObject)puppet).GetPosition().GetX()) < ballSize.GetX()/2+homingDistance)
             { //when the ball is really close to the paddle a small homing feature is activated to reduce losses from round off error
-                moveAt = ((IGameObject) puppet).GetSize().GetY()/2 + ballPosition.GetY();
+                moveAt = ballPosition.GetY();
                 direction = (moveAt - ((IGameObject) puppet).GetPosition().GetY()) / Math.abs(moveAt - ((IGameObject) puppet).GetPosition().GetY());
                 Action();
                 recentlyCalculatedMovement = true;
@@ -112,11 +111,11 @@ public class AI implements IObserver, IControll {
 
             if (collisionPoint.GetX() <= destination.GetX() + destinationSize.GetX()/2 + ballSize.GetX()/2 && destination.GetX() < worldInfo.GetWorldSize().GetX()/2) // is true if the collision point between the ball and the horizontal walls is outside of the world
             { //left paddle
-                predictPos = destinationSize.GetY()/2 + ImpactBetweenGraph(destination, Vector.vertical(), ballPosition.VectorSumX(-ballSize.GetX()/2), ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
+                predictPos = ImpactBetweenGraph(destination.VectorSumX(destinationSize.GetX()/2), Vector.vertical(), ballPosition.VectorSumX(-ballSize.GetX()/2), ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
                 break;
             } else if (collisionPoint.GetX() >= destination.GetX() - destinationSize.GetX()/2 - ballSize.GetX()/2 && destination.GetX() > worldInfo.GetWorldSize().GetX()/2)
             { //right paddle
-                predictPos = destinationSize.GetY()/2 + ImpactBetweenGraph(destination, Vector.vertical(), ballPosition.VectorSumX(ballSize.GetX()/2), ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
+                predictPos = ImpactBetweenGraph(destination.VectorSumX(-destinationSize.GetX()/2), Vector.vertical(), ballPosition.VectorSumX(ballSize.GetX()/2), ballVelocity).GetY(); //Find the impact between the balls path and the  vertical walls and set its y position as the desired position
                 break;
             }
             else { //If the collision between the balls path and the horizontal walls is inside of the world then recalculate the path from the impact and with the velocity for after the bounce.

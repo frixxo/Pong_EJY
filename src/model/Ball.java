@@ -55,7 +55,6 @@ public class Ball extends Rigbody implements IGameObject{
             velocity.y -= variation;
             variation = GetVariation(1);
             velocity.y += variation;
-            System.out.println(variation);
         }
         velocity.x = (velocity.x / Math.abs(velocity.x)) * Math.sqrt(Math.pow(speed, 2)-Math.pow(velocity.y, 2));
     }
