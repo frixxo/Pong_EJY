@@ -12,7 +12,7 @@ public class ModelManager implements IObserver {
     *   has a reset() function which can be used to reset the game
     */
 
-    private int score[] = {0, 0};
+    private int score[] = {0, 0,0};
     public boolean roundOver = false; // should use this to reset the round
 
     private Ball ball;
@@ -42,7 +42,8 @@ public class ModelManager implements IObserver {
     public void Update(){
         if ((ball.GetMovmentVector().x < 0 && Collider.isCollision(ball, left)) ||
                 (ball.GetMovmentVector().x > 0 && Collider.isCollision(ball, right))) {
-            ball.points++;
+            score[2]++;
+            worldInfo.SetScore(score);
             ball.BounceX();
             ball.boost();
         } else { // if no collision with the paddles then possibly is winning
@@ -52,9 +53,13 @@ public class ModelManager implements IObserver {
                 switch (winner) {
                     case LEFT:
                         score[1]++;
+                        score[2]=0;
+                        worldInfo.SetScore(score);
                         break;
                     case RIGHT:
                         score[0]++;
+                        score[2]=0;
+                        worldInfo.SetScore(score);
                         break;
                 }
 
@@ -88,10 +93,11 @@ public class ModelManager implements IObserver {
     }
 
     private paddles checkVictory() {
-        if (ball.GetPosition().x <= 0){ left.points++; ball.points=0; return paddles.LEFT; }
-        else if (ball.GetPosition().x + ball.GetSize().x >= worldInfo.GetWorldSize().x){ right.points++; ball.points=0; return paddles.RIGHT; }
+        if (ball.GetPosition().x <= 0){ return paddles.LEFT; }
+        else if (ball.GetPosition().x + ball.GetSize().x >= worldInfo.GetWorldSize().x){ return paddles.RIGHT; }
         return paddles.NONE;
     }
+
 
     private enum paddles{
         RIGHT, LEFT, NONE

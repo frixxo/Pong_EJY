@@ -2,12 +2,12 @@ package model;
 import GameManagment.IWorldInfo;
 
 public class Ball extends Rigbody implements IGameObject{
-    // TODO this is not used here
+
     private IWorldInfo worldInfo;
     private Vector velocity;
-    public int points=0;
+
     public Ball(Vector position, IWorldInfo worldInfo){
-        super(20, 20, 0.5, position);
+        super(20, 20, 3, position);
         this.worldInfo = worldInfo;
         velocity = new Vector(3,0);
         SetTwist();
@@ -48,7 +48,6 @@ public class Ball extends Rigbody implements IGameObject{
         return Math.random() / divisor - var;
     }
 
-    public int getPoints(){return points;}
     private void SetTwist(){
         double variation = GetVariation(1);
         velocity.y += variation;

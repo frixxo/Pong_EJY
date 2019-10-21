@@ -18,9 +18,10 @@ public class Render{
         //Draws points
         fg.setFill(Color.WHITE);
         fg.setFont(Font.font(24));
-        fg.fillText(gameobjects[2].getPoints() +"",230,50);//poäng vänster
-        fg.fillText(gameobjects[1].getPoints() +"",350,50);//poäng höger
-        fg.fillText(gameobjects[0].getPoints()+"",290,50);//antal studs
+        int[] score = worldInfo.GetScore();
+        fg.fillText(score[0] +"",230,50);//poäng vänster
+        fg.fillText(score[1] +"",350,50);//poäng höger
+        fg.fillText(score[2] +"",290,50);//antal studs
 
         fg.setFont(Font.font(12));
         fg.fillText("bounces:",270,20);

@@ -9,7 +9,6 @@ import javax.naming.ldap.Control;
 public class Paddle extends Rigbody implements IGameObject, IControllable {
     // define the start position
     private double direction = 0;
-    public int points=0;
 
     public Paddle(Vector position, IWorldInfo worldInfo, IControll controll){
         super(10,50,5, position);
@@ -49,6 +48,4 @@ public class Paddle extends Rigbody implements IGameObject, IControllable {
     {
         return controll;
     }
-
-    public int getPoints(){ return points; }
 }

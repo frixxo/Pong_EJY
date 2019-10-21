@@ -18,7 +18,7 @@ public class GM implements IObservable, IWorldInfo{
     private IControll[] controlls;
     private GUI gui;
     private Vector worldSize;
-    private int score[] = {0,0};
+    private int score[] = {0,0,0};
 
     public GM(IObserver gui, int worldWidth, int worldHeight) { // This constructor initializes a new world
         worldSize = new Vector(worldWidth, worldHeight);
