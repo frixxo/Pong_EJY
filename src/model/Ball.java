@@ -38,8 +38,6 @@ public class Ball extends Rigbody implements IGameObject{
         velocity.x = velocity.x / Math.abs(velocity.x) * speed;
         velocity.y = 0;
         SetTwist();
-
-        System.out.println("New velocity: "+velocity.x+", "+velocity.y);
     }
 
     private double GetVariation(double var) {
